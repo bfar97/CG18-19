@@ -135,6 +135,23 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
 
 }
 
+void printPlano(float tam,FILE *f){
+    fprintf(f,"%f %f %f \n",tam/2,tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",-tam/2,tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",tam/2,-tam/2, 0.0);
+
+    fprintf(f,"%f %f %f \n",tam/2,tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",tam/2,-tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",-tam/2,tam/2, 0.0);
+
+    fprintf(f,"%f %f %f \n",tam/2,-tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",-tam/2,tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",-tam/2,-tam/2, 0.0);
+
+    fprintf(f,"%f %f %f \n",tam/2,-tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",-tam/2,-tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",-tam/2,tam/2, 0.0);
+}
 
 int main( int i ,char *args[] ) {
     FILE *f = fopen( "pontos.txt","w");
@@ -152,6 +169,12 @@ int main( int i ,char *args[] ) {
             if ( !strcmp("esfera", args[1]) ){
                 
                 printSphere( atof( args[2] ), atof( args[3] ), atof( args[4] ), f);
+            }
+            else {
+                if ( !strcmp("plano", args[1]) ){
+
+                    printPlano( atof( args[2] ),f );
+                }
             }
         }
     }
