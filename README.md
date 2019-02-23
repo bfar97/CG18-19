@@ -2,11 +2,7 @@
 
 Trabalho realizado no âmbito da disciplina de Computação Gráfica, cadeira de Ciências de Computação da Universidade do Minho
 
-
-
-#           Comandos básicos           
-#                  GIT                 
-
+# Comandos básicos Git                
 
 # COMO MEXER NO GITHUB PARA DUMMIES
 ## Clonar projeto
