@@ -1,0 +1,5 @@
+<scene>
+  <model file="caixa.txt" />
+  <model file="esfera.txt" />
+  <model file="cone.txt" />
+</scene>
