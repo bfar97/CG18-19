@@ -57,7 +57,7 @@ void changeSize(int w, int h) {
 void printPontos(std::string ficheiro) {
     std::ifstream file;
     //change this to your folder's path.
-    std::string s = "/home/bernardo/Desktop/CG/";
+    std::string s = "/home/bernardo/Desktop/Generator/Engine/";
     s.append(ficheiro.c_str());
     file.open(s.c_str());
     float a,b,c;
@@ -148,7 +148,7 @@ int main(int argc, char **argv) {
 
     tinyxml2::XMLDocument doc;
 
-    doc.LoadFile("/home/bernardo/Desktop/CG/conf.xml");
+    doc.LoadFile("/home/bernardo/Desktop/Generator/Engine/conf.xml");
 
     tinyxml2::XMLNode *scene = doc.FirstChild();
 

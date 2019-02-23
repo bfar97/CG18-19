@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/bernardo/Desktop/CG/main.cpp
+/home/bernardo/Desktop/Generator/Engine/main.cpp
 GLUT/glut.h
 -
 GL/glut.h
@@ -16,7 +16,7 @@ math.h
 iostream
 -
 tinyxml2.h
-/home/bernardo/Desktop/CG/tinyxml2.h
+/home/bernardo/Desktop/Generator/Engine/tinyxml2.h
 string
 -
 vector
@@ -24,7 +24,7 @@ vector
 fstream
 -
 
-/home/bernardo/Desktop/CG/tinyxml2.h
+/home/bernardo/Desktop/Generator/Engine/tinyxml2.h
 ctype.h
 -
 limits.h
