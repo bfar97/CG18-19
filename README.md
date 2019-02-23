@@ -3,6 +3,25 @@
 Trabalho realizado no âmbito da disciplina de Computação Gráfica, cadeira de Ciências de Computação da Universidade do Minho
 
 
+########################################
+#           Comandos básicos           #
+#                  GIT                 #
+########################################
+
+# COMO MEXER NO GITHUB PARA DUMMIES
+## Clonar projeto
+  - Abrir terminal na pasta onde se quer guardar o projeto
+  - git clone https://github.com/bfar97/poo-1718.git
+
+## Atualizar mudanças efetuadas para o repositório
+  - git add -A
+  - git commit -m "mensagem de commit"
+  - git push
+
+## Atualizar repositório local
+  - git pull
+
+
 # Engine
 
 ## How-to
