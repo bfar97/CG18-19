@@ -27,3 +27,9 @@ Para usar o nosso motor:
  - Colocar os ficheiros .txt gerados na pasta Engine;
  - Editar o ficheiro conf.xml com a estrutura de figuras desejada;
  - Executar o projeto CMake;
+
+# Generator
+
+## How-to
+
+Carioca Escreve Merdas Aqui Para explicar como se usa o gerador
