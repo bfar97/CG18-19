@@ -2,51 +2,78 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#define pol1(r, a, b)  (r * cos(b) * cos(a))
-#define pol2(r, a, b)  (r * cos(b) * sin(a))
-#define pol3(r, b)     (r * sin(b))
+
+#define cp1(r, a)     (r * sin(a))
+#define cp2(r, a)     (r * cos(a))
+
+
+#define ce1(r, a, b)  (r * cos(b) * sin(a))
+#define ce2(r, b)     (r * sin(b))
+#define ce3(r, a, b)  (r * cos(b) * cos(a))
 
 void printSphere(float radius, int slices, int stacks, FILE* f){
     // variaveis que vem o numero da stack atual
     float stkd, slcd;
+    float slc, stk, nslc, nstk;
+
     int j;
+
     // delta dos angulos por stack
     stkd = M_PI / stacks;
+
     // delta dos angulos por slice
     slcd = 2 * M_PI / slices;
 
+
     for(int i = 0; i < slices; ++i) {
 
-        j = -(stacks / 2) + 1;
+        j = 1;
+        slc = i * slcd;
+        nslc = (i+1) * slcd;
+        stk = -M_PI_2 + j * stkd;
 
-        fprintf(f,"%f %f %f \n",pol1(radius, (i+1)*slcd, j*stkd), pol2(radius, (i+1)*slcd, j*stkd),
-                   pol3(radius, j * stkd));
-        fprintf(f,"%f %f %f \n",pol1(radius, i*slcd, j*stkd), pol2(radius, i*slcd, j*stkd),
-                pol3(radius, j * stkd));
-        fprintf(f,"%f %f %f \n",0.0, 0.0, -radius);
 
-        for(; j < stacks / 2 - 1; ++j) {
+        fprintf(f,"%f %f %f \n",0.0, -radius, 0.0);
+        fprintf(f,"%f %f %f \n",ce1(radius, nslc, stk), ce2(radius, stk), ce3(radius, nslc, stk));
+        fprintf(f,"%f %f %f \n",ce1(radius, slc, stk), ce2(radius, stk), ce3(radius, slc, stk));
+
+
+
+        for(; j < stacks-1; ++j) {
+
+            slc = i * slcd;
+            nslc = (i+1) * slcd;
+            stk = -M_PI_2 + j * stkd;
+            nstk = -M_PI_2 + (j+1) * stkd;
+
+            fprintf(f,"%f %f %f \n",ce1(radius, nslc, nstk), ce2(radius, nstk), ce3(radius, nslc, nstk));
+            fprintf(f,"%f %f %f \n",ce1(radius, slc, stk), ce2(radius, stk), ce3(radius, slc, stk));
+            fprintf(f,"%f %f %f \n",ce1(radius, nslc, stk), ce2(radius, stk), ce3(radius, nslc, stk));
+
+
+
             
-            fprintf(f,"%f %f %f \n",pol1(radius, i*slcd, j*stkd), pol2(radius, i*slcd, j*stkd), pol3(radius, j*stkd));
-            fprintf(f,"%f %f %f \n",pol1(radius, (i+1) * slcd, j*stkd), pol2(radius, (i+1)*slcd, j*stkd),
-                    pol3(radius, j*stkd));
-            fprintf(f,"%f %f %f \n",pol1(radius, (i+1)*slcd, (j+1) * stkd), pol2(radius, (i+1)*slcd, (j+1) * stkd),
-                    pol3(radius, (j+1) * stkd));
-            
-            fprintf(f,"%f %f %f \n",pol1(radius, (i+1)*slcd, (j+1)*stkd), pol2(radius, (i+1)*slcd, (j+1)*stkd),
-                    pol3(radius, (j+1)*stkd));
-            fprintf(f,"%f %f %f \n",pol1(radius, i*slcd, (j+1)*stkd), pol2(radius, i*slcd, (j+1)*stkd),
-                    pol3(radius, (j+1)*stkd));
-            fprintf(f,"%f %f %f \n",pol1(radius, i*slcd, j*stkd), pol2(radius, i*slcd, j*stkd), pol3(radius, j*stkd));
+            fprintf(f,"%f %f %f \n",ce1(radius, slc, nstk), ce2(radius, nstk), ce3(radius, slc, nstk));
+            fprintf(f,"%f %f %f \n",ce1(radius, slc, stk), ce2(radius, stk), ce3(radius, slc, stk));
+            fprintf(f,"%f %f %f \n",ce1(radius, nslc, nstk), ce2(radius, nstk), ce3(radius, nslc, nstk));
+
 
         }
+
+        slc = i * slcd;
+        nslc = (i+1) * slcd;
+        stk = -M_PI / 2 + j * stkd;
+
         
-        fprintf(f,"%f %f %f \n",0.0, 0.0, radius);
-        fprintf(f,"%f %f %f \n",pol1(radius, i*slcd, j*stkd), pol2(radius, i*slcd, j*stkd),
-                pol3(radius, j * stkd));
-        fprintf(f,"%f %f %f \n",pol1(radius, (i+1)*slcd, j*stkd), pol2(radius, (i+1)*slcd, j*stkd),
-                   pol3(radius, j * stkd));
+        fprintf(f,"%f %f %f \n",0.0, radius, 0.0);
+        fprintf(f,"%f %f %f \n",ce1(radius, slc, stk), ce2(radius, stk), ce3(radius, slc, stk));
+        fprintf(f,"%f %f %f \n",ce1(radius, nslc, stk), ce2(radius, stk), ce3(radius, nslc, stk));
+
+
     }
+
+    
+
 
 }
 
@@ -90,7 +117,9 @@ void printBox ( float xx , float yy , float zz , FILE *f ){
 }
 
 void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
- float stkd, slcd, raiod;
+ 
+    float stkd, slcd, raiod;
+    float stk, slc, nslc, nstk, nr, r;
 
     stkd = altura / stacks;
     slcd = 2 * M_PI / slices;
@@ -98,40 +127,60 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
 
     int j;
 
-   
 
     for(int i = 0; i < slices; i++) {
 
+        // codigo responsavel por gerar uma slice da base
+
+        slc = i * slcd;
+        nslc = (i+1) * slcd;
+
        
         fprintf(f,"%f %f %f \n",0.0, 0.0, 0.0);
-        fprintf(f,"%f %f %f \n",radius * cos((i+1)*slcd), radius * sin((i+1)*slcd), 0.0);
-        fprintf(f,"%f %f %f \n",radius * cos(i*slcd), radius * sin(i*slcd), 0.0);
+        fprintf(f,"%f %f %f \n",cp1(radius, nslc),  0.0, cp2(radius, nslc));
+        fprintf(f,"%f %f %f \n",cp1(radius, slc), 0.0, cp2(radius, slc));
 
-        for(j = stacks; j > 1; j--) {
+
+        // codigo responsavel por gerar as slices laterais
+        for(j = stacks ; j > 1; j--) {
+
+            slc = i * slcd;
+            nslc = (i+1) * slcd;
+            stk = (stacks - j) * stkd;
+            nstk = (stacks - (j-1)) * stkd;
+            r = j * raiod;
+            nr = (j - 1) * raiod;
+
 
            
-            fprintf(f,"%f %f %f \n",j * raiod * cos(i * slcd), j * raiod * sin(i * slcd), (stacks-j)*stkd);
-            fprintf(f,"%f %f %f \n",j * raiod * cos((i + 1) * slcd), j * raiod * sin((i + 1) * slcd), (stacks-j)*stkd);
-            fprintf(f,"%f %f %f \n",(j-1) * raiod * cos((i + 1) * slcd), (j-1) * raiod * sin((i + 1) * slcd),
-                    (stacks-(j-1)) * stkd);
+            fprintf(f,"%f %f %f \n",cp1(nr, nslc), nstk, cp2(nr, nslc));
+            fprintf(f,"%f %f %f \n",cp1(r, slc), stk, cp2(r, slc));
+            fprintf(f,"%f %f %f \n",cp1(r, nslc), stk, cp2(r, nslc));
+
 
 
             
-            fprintf(f,"%f %f %f \n",(j-1) * raiod * cos((i + 1) * slcd), (j-1) * raiod * sin((i + 1) * slcd),
-                    (stacks-(j - 1))*stkd);
-            fprintf(f,"%f %f %f \n",(j-1) * raiod * cos(i * slcd), (j-1) * raiod * sin(i * slcd),
-                    (stacks-(j - 1))*stkd);
-            fprintf(f,"%f %f %f \n",j * raiod * cos(i * slcd), j * raiod * sin(i * slcd), (stacks-j)*stkd);
+            fprintf(f,"%f %f %f \n",cp1(nr, slc), nstk, cp2(nr, slc));
+            fprintf(f,"%f %f %f \n",cp1(r, slc), stk, cp2(r, slc));
+            fprintf(f,"%f %f %f \n",cp1(nr, nslc), nstk, cp2(nr, nslc));
 
         }
 
+        // codigo responsavel por gerar a slice do topo
+        slc = i * slcd;
+        nslc = (i+1) * slcd;
+        stk = (stacks - j) * stkd;
+        r = j * raiod;
 
-        
-        fprintf(f,"%f %f %f \n",j * raiod * cos(i * slcd), j * raiod * sin(i * slcd), (stacks-j)*stkd);
-        fprintf(f,"%f %f %f \n",j * raiod * cos((i + 1) * slcd), j * raiod * sin((i + 1) * slcd), (stacks-j)*stkd);
-        fprintf(f,"%f %f %f \n",0.0, 0.0, altura);
+
+       
+        fprintf(f,"%f %f %f \n",0.0, altura, 0.0);
+        fprintf(f,"%f %f %f \n",cp1(r, slc), stk, cp2(r, slc));
+        fprintf(f,"%f %f %f \n",cp1(r, nslc), stk, cp2(r, nslc));
 
     }
+
+   
 
 }
 
