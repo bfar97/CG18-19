@@ -29,7 +29,7 @@
 
 \title{Computação Gráfica: Etapa\#1} % Title of the assignment
 
-\author{Bernardo Rodrigues\\ \texttt{a99999@alunos.uminho.pt}\\ \and César Silva\\ \texttt{a77518@alunos.uminho.pt}\\ \and Pedro Faria\\ \texttt{a82725@alunos.uminho.pt} \and Rui Silva\\ \texttt{a99999@alunos.uminho.pt}\\} % Author name and email address
+\author{Bernardo Rodrigues\\ \texttt{a79008@alunos.uminho.pt}\\ \and César Silva\\ \texttt{a77518@alunos.uminho.pt}\\ \and Pedro Faria\\ \texttt{a82725@alunos.uminho.pt} \and Rui Silva\\ \texttt{a77219@alunos.uminho.pt}\\} % Author name and email address
 
 \date{Universidade do Minho --- \today} % University, school and/or department name(s) and a date
 
@@ -38,12 +38,15 @@
 \begin{document}
 
 \maketitle 
-% meter uma imagem toda catita aqui
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6cm,height=6cm]{esfera}
+\end{figure}
 \newpage
 
 \begin{abstract}
-A \textbf{Computação Gráfica}, uma das muitas áreas da informática, que assume um papel fulcral em interações homem-máquina e na visualização de dados. o seu espectro de aplicações varia desde geração de imagens até a simulação do mundo real.
-O presente relatório refere-se à primeira fase de entrega da componente prática da unidade curricular (UC) de \textbf{Computação Gráfica} enquadrada no curso de Ciências da Computação da Universidade do Minho.
+A \textbf{Computação Gráfica}, uma das muitas áreas da informática, que assume um papel fulcral em interações homem-máquina e na visualização de dados. o seu espectro de aplicações varia desde geração de imagens até a simulação do mundo real. \par
+	O presente relatório refere-se à primeira fase de entrega da componente prática da Unidade Curricular de \textbf{Computação Gráfica} enquadrada no curso de \textit{Ciências da Computação} da \textit{Universidade do Minho}. 
 \end{abstract}
 \newpage
 
@@ -60,27 +63,148 @@ O presente relatório refere-se à primeira fase de entrega da componente práti
 
 \section{Introdução}
 
-Nesta fase, foram desenvolvidas duas aplicações. Um gerador de modelos, que aceite argumentos a partir do terminal, que nesta fase deveria escrever para um documento os pontos de uma primitiva gráfica desejada pelo utilizador. E a última, um motor capaz de gerar os modelos a partir de um ficheiro de configuração. 
-Com base nos tópicos enunciados nas aulas teóricas e ferramentas exploradas nas aulas práticas. Implementamos o gerador e o motor na linguagem \textbf{C++[]}, em particular esta última faz uso de biblioteca \textbf{TinyXML2} para que a leitura dos documentos que lhe são dados com input seja feita de forma simples e consistente. E por fim,  utilizamos a API fornecida pelo \textbf{OpenGl} para dar vida aos nossos modelos e confirmar a consistência dos nossos programas.
-
-\subsection{Análise do Enunciado}
-
-Talvez remover esta ainda vamos ver.
+Nesta fase, foram desenvolvidas duas aplicações. Um \textbf{Gerador} de modelos, que aceite argumentos a partir do terminal, com a função de gerar os pontos de uma primitiva gráfica desejada pelo utilizador, imprimindo estes para um ficheiro. E a última, um \textbf{Motor} que interpreta os pontos gerados anteriormente de acordo com um ficheiro de configuração dado. 
+Com base nos tópicos enunciados e ferramentas exploradas nas aulas implementamos o \textbf{Gerador} e o \textbf{Motor} na linguagem \textbf{C++}. Em particular esta última faz uso de biblioteca \textbf{TinyXML2} para que a leitura dos documentos que lhe são dados com input seja feita de forma simples e consistente. E por fim,  utilizamos a API fornecida pelo \textbf{OpenGl} para dar vida aos nossos modelos.
 
 \subsection{Estrutura do Relatório}
+O presente documento divide-se em duas partes principais. A primeira onde expomos brevemente os conteúdos do trabalho, explicamos funcionalidades, fazemos considerações importantes e demonstração de resultados.
+No fim, em anexo dispomos  todo o código interveniente dos diferentes módulos do projeto. 
 
-bla bla
+\newpage
 
 \section{Gerador}
+O nosso \textbf{Gerador} é um pequeno programa em \textbf{C++}, cuja implementação é disponibilizada em anexo, que depois de compilado, o correspondente executável escreve para um ficheiro (um por linha) os vértices da primitiva gráfica desejada  como iremos ilustrar nas seguintes secções.
+
 
 \subsection{Caixa}
+Para geração desta primitiva o utilizador deverá invocar a aplicação a com o nome do executável seguido dos comprimentos dos lados de um paraleloipipedo no eixos com X’s, Y’s e Z’s respetivamente e por fim o nome do ficheiro destino. A sintaxe é demonstrada no exemplo abaixo:
+
+\begin{commandline}
+    \begin{verbatim}
+        $ g++ -o gerador gen.cpp
+        $ ./gerador caixa 3 4 5 osmeusvertices
+        $ ls
+        $ gen.cpp            gerador            osmeusvertices.txt
+    \end{verbatim}
+\end{commandline}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4cm,height=4cm]{caixa}
+	\caption{Caixa}
+\end{figure}
+
+\begin{warn}[Notice:]
+Todas as faces são desenhadas com dois triângulos apontados para o exterior pela norma da mão direita mencionada nas aulas. Um zoom excessivo, ou a escolha de dimensões superiores à distância da câmara à origem(onde este é centrado)  pode levar ao aparente desaparecimento do modelo.
+\end{warn}
 
 \subsection{Cone}
+O \textbf{Cone} recebe como argumentos o raio da base, a sua altura, o número de slices e stacks. \\
+A construção deste começa por fixar um uma \textit{slice} calculando os vértices da base correspondente, de seguida todas as \textit{stacks} relativas, sendo o última stack - a do bico - um caso especial. \\
+O algoritmo usa noções como semelhança de triângulos para cálculo dos sucessivos raios das circuferências formadas pelas \textit{stacks}.\\
+
+\begin{info}
+	Apresentamos o significado das variáveis usadas no programa que gera os pontos do \textbf{Cone}: 
+	\begin{itemize}
+		\item[] \textit{stkd} - diferença entre stacks consecutivas
+		\item[] \textit{slcd} - diferença entre slices consecutivas
+		\item[] \textit{raiod} - diferença entre o raio de duas stacks consecutivas
+		\item[] \textit{stk} - stack atual 
+		\item[] \textit{slc} - slice atual
+		\item[] \textit{nslc} - próxima slice
+		\item[] \textit{nstk} - próxima stack
+		\item[] \textit{nr} - próximo raio
+		\item[] \textit{r} - raio atual
+	\end{itemize}
+\end{info}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4cm,height=4cm]{conesemelhante}
+	\caption{Semelhança de triângulos num cone}
+\end{figure}
+
+Apresentamos algumas imagens que ilustram a criação do cone. \\
+
+\begin{figure}[H]
+	\centering
+	\subfloat[2 stacks]{\includegraphics[width=3cm,height=3cm]{2stk}}
+	\hspace{2cm}
+	\subfloat[4 stacks]{\includegraphics[width=3cm,height=3cm]{4stk}}
+	\caption{Progessão das stacks do cone}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[1 slice]{\includegraphics[width=3cm,height=3cm]{1slc}}
+	\hspace{2cm}
+	\subfloat[2 slices]{\includegraphics[width=3cm,height=3cm]{2slc}}
+	\caption{Progessão das slices do cone}
+\end{figure}
+
+Finalmente obtemos:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4cm,height=4cm]{cone}
+	\caption{Cone}
+\end{figure}
 
 \subsection{Esfera}
+A \textbf{Esfera} recebe como argumentos o seu raio, o número de slices e stacks.
+A sua construção usa coordenadas esféricas usando o raio dado como argumentos e manipulando 2 ângulos \textit{Alfa} e \textit{Beta}. \textit{Alfa} é dado por: \\
+\[ alfa = \frac{2\times \Pi}{slices} \]
+Este nos programas é usado juntamente com o raio para calcular os pontos de \textit{slices} consecutivas. De seguida \textit{beta} é dado por:\\
+\[ beta = \frac{\Pi \div 2}{stacks}\] \\
+Este desenpenha uma função igual ao anterior considerando \textit{stacks}.\\
+
+
+\begin{figure}[H]
+	\centering
+	\subfloat[4 stacks]{\includegraphics[width=3cm,height=3cm]{4estk}}
+	\hspace{2cm}
+	\subfloat[8 stacks]{\includegraphics[width=3cm,height=3cm]{8estk}}
+	\caption{Progessão das stacks da esfera}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[1 slice]{\includegraphics[width=3cm,height=3cm]{1eslc}}
+	\hspace{2cm}
+	\subfloat[2 slices]{\includegraphics[width=3cm,height=3cm]{2eslc}}
+	\caption{Progessão das slices da esfera}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4cm,height=4cm]{esfera}
+	\caption{Esfera}
+\end{figure}
 
 \subsection{Plano}
+O requisito estabelecido no guião do trabalho veio em muito simplificar a representação do plano XZ ao ponto de para a sua computação seja apenas necessário um único argumento que representa o tamanho da porção visível desejada.  
 
+\begin{commandline}
+    \begin{verbatim}
+        $ g++ -o gerador gen.cpp
+        $ ./gerador plano 5 pontos
+        $ ls
+        $ gen.cpp            gerador            pontos.txt
+    \end{verbatim}
+\end{commandline}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4cm,height=4cm]{caixa}
+	\caption{Caixa}
+\end{figure}
+
+\begin{warn}[Notice:]
+Os planos são infinitos a referência ao tamanho é feita apenas para facilitar a observação do mesmo.
+São desenhados 4 triângulos, em vez de dois, para que esta primitiva seja visível de todas as perspectivas.
+\end{warn}
+
+\newpage
 \section{Motor}
 O motor é a parte do nosso trabalho que faz o linking de todas as outras partes que foram realizadas. O motor, lê um ficheiro xml (conf.xml). Este ficheiro contém uma estrutura bastante simples, dividida em scenes.
 
@@ -187,83 +311,18 @@ void printPontos(std::vector<Pontos> pontos) {
 
 Esta função é chamada na \text{renderScene} e geras todos os pontos percorrendo o vector.
 
-
+\newpage
 \section{Conclusão}
 De um modo geral achamos que grupo, apesar das dificuldades,  correspondeu às exigências propostas do enunciado. Tentamos implementar uma solução que suportasse requisitos futuros.  
+
+\newpage
 \appendix
 
-\section{Coisas que se pode fazer com este template}
+\section{Código do Gerador}
 
-% Numbered question, with subquestions in an enumerate environment
-\begin{question}
-	Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+\newpage
 
-	% Subquestions numbered with letters
-	\begin{enumerate}[(a)]
-		\item Do this.
-		\item Do that.
-		\item Do something else.
-	\end{enumerate}
-\end{question}
-	
-\begin{center}
-	\begin{minipage}{0.5\linewidth} % Adjust the minipage width to accomodate for the length of algorithm lines
-		\begin{algorithm}[H]
-			\KwIn{$(a, b)$, two floating-point numbers}  % Algorithm inputs
-			\KwResult{$(c, d)$, such that $a+b = c + d$} % Algorithm outputs/results
-			\medskip
-			\If{$\vert b\vert > \vert a\vert$}{
-				exchange $a$ and $b$ \;
-			}
-			$c \leftarrow a + b$ \;
-			$z \leftarrow c - a$ \;
-			$d \leftarrow b - z$ \;
-			{\bf return} $(c,d)$ \;
-			\caption{\texttt{FastTwoSum}} % Algorithm name
-			\label{alg:fastTwoSum}   % optional label to refer to
-		\end{algorithm}
-	\end{minipage}
-\end{center}
-
-% Numbered question, with an optional title
-\begin{question}[\itshape (with optional title)]
-	In congue risus leo, in gravida enim viverra id. Donec eros mauris, bibendum vel dui at, tempor commodo augue. In vel lobortis lacus. Nam ornare ullamcorper mauris vel molestie. Maecenas vehicula ornare turpis, vitae fringilla orci consectetur vel. Nam pulvinar justo nec neque egestas tristique. Donec ac dolor at libero congue varius sed vitae lectus. Donec et tristique nulla, sit amet scelerisque orci. Maecenas a vestibulum lectus, vitae gravida nulla. Proin eget volutpat orci. Morbi eu aliquet turpis. Vivamus molestie urna quis tempor tristique. Proin hendrerit sem nec tempor sollicitudin.
-\end{question}
-
-% Math equation/formula
-\begin{equation}
-	I = \int_{a}^{b} f(x) \; \text{d}x.
-\end{equation}
-
-\begin{info} % Information block
-	This is an interesting piece of information, to which the reader should pay special attention. Fusce varius orci ac magna dapibus porttitor. In tempor leo a neque bibendum sollicitudin. Nulla pretium fermentum nisi, eget sodales magna facilisis eu. Praesent aliquet nulla ut bibendum lacinia. Donec vel mauris vulputate, commodo ligula ut, egestas orci. Suspendisse commodo odio sed hendrerit lobortis. Donec finibus eros erat, vel ornare enim mattis et.
-\end{info}
-
-% File contents
-\begin{file}[hello.py]
-\begin{lstlisting}[language=Python]
-#! /usr/bin/python
-
-import sys
-sys.stdout.write("Hello World!\n")
-\end{lstlisting}
-\end{file}
-
-% Command-line "screenshot"
-\begin{commandline}
-	\begin{verbatim}
-		$ chmod +x hello.py
-		$ ./hello.py
-
-		Hello World!
-	\end{verbatim}
-\end{commandline}
-
-
-% Warning text, with a custom title
-\begin{warn}[Notice:]
-  In congue risus leo, in gravida enim viverra id. Donec eros mauris, bibendum vel dui at, tempor commodo augue. In vel lobortis lacus. Nam ornare ullamcorper mauris vel molestie. Maecenas vehicula ornare turpis, vitae fringilla orci consectetur vel. Nam pulvinar justo nec neque egestas tristique. Donec ac dolor at libero congue varius sed vitae lectus. Donec et tristique nulla, sit amet scelerisque orci. Maecenas a vestibulum lectus, vitae gravida nulla. Proin eget volutpat orci. Morbi eu aliquet turpis. Vivamus molestie urna quis tempor tristique. Proin hendrerit sem nec tempor sollicitudin.
-\end{warn}
+\section{Código do Motor}
 
 
 \end{document}
