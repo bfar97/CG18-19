@@ -73,9 +73,22 @@ No fim, em anexo dispomos  todo o código interveniente dos diferentes módulos 
 \newpage
 
 \section{Gerador}
+<<<<<<< HEAD
 O nosso \textbf{Gerador} é um pequeno programa em \textbf{C++}, cuja implementação é disponibilizada em anexo, que depois de compilado, o correspondente executável escreve para um ficheiro (um por linha) os vértices da primitiva gráfica desejada  como iremos ilustrar nas seguintes secções.
 
 
+=======
+O nosso \textbf{Gerador} é um pequeno programa em \textbf{C++} que depois de compilado, o correspondente executável escreve para um ficheiro (um por linha) os vértices da primitiva gráfica desejada  como iremos ilustrar nas seguintes secções.
+% Linha de Comandos "screenshot"
+\begin{commandline}
+	\begin{verbatim}
+		$ g++ -o gerador gen.cpp
+		$ ./gerador cone 1 1 20 5
+		$ ls
+		$ gen.cpp			gerador			cone.txt
+	\end{verbatim}
+\end{commandline}
+>>>>>>> f5252aa7e0cd7bf5424a9a6c05799f5412a9c4bc
 \subsection{Caixa}
 Para geração desta primitiva o utilizador deverá invocar a aplicação a com o nome do executável seguido dos comprimentos dos lados de um paraleloipipedo no eixos com X’s, Y’s e Z’s respetivamente e por fim o nome do ficheiro destino. A sintaxe é demonstrada no exemplo abaixo:
 

@@ -81,9 +81,9 @@ void printBox ( float xx , float yy , float zz , FILE *f ){
     fprintf(f,"%f %f %f \n",-xx/2,-yy/2,zz/2 );
     fprintf(f,"%f %f %f \n",xx/2,-yy/2,zz/2);
     fprintf(f,"%f %f %f \n",xx/2,yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,zz/2);
     fprintf(f,"%f %f %f \n",xx/2,yy/2,zz/2);
     fprintf(f,"%f %f %f \n",-xx/2,yy/2,zz/2);
-    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,zz/2);
     fprintf(f,"%f %f %f \n",-xx/2,-yy/2,-zz/2);
     fprintf(f,"%f %f %f \n",xx/2,yy/2,-zz/2);
     fprintf(f,"%f %f %f \n",xx/2,-yy/2,-zz/2);
