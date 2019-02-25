@@ -18,14 +18,22 @@
 
 using namespace tinyxml2;
 
-std::vector<std::string> ficheiros;
+
+
+struct Pontos {
+    float a;
+    float b;
+    float c;
+};
+
+std::vector<Pontos> pontos;
 
 
 #define GROWF 0.01
 
 double alfa = M_PI / 4;
 double beta = M_PI / 4;
-float raio = 5.0f;
+float raio = 15.0f;
 
 
 void changeSize(int w, int h) {
@@ -54,18 +62,27 @@ void changeSize(int w, int h) {
 }
 
 
-void printPontos(std::string ficheiro) {
+void guardaPontos(std::string ficheiro) {
     std::ifstream file;
     //change this to your folder's path.
-    std::string s = "/home/bernardo/Desktop/Generator/Engine/";
+    std::string s = "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-master/Engine/";
     s.append(ficheiro.c_str());
     file.open(s.c_str());
     float a,b,c;
     while(file >> a >> b >> c) {
-        glVertex3f(a,b,c);
+        Pontos aux;
+        aux.a = a;
+        aux.b = b;
+        aux.c = c;
+        pontos.push_back(aux);
     }
 }
 
+void printPontos(std::vector<Pontos> pontos) {
+    for(int i = 0; i < pontos.size(); i++) {
+        glVertex3f(pontos[i].a, pontos[i].b, pontos[i].c);
+    }
+}
 
 
 void renderScene(void) {
@@ -77,7 +94,7 @@ void renderScene(void) {
     glLoadIdentity();
     gluLookAt(raio * cos(beta) * cos(alfa), raio * cos(beta) * sin(alfa), raio * sin(beta),
               0.0,0.0,0.0,
-              0.0f,0.0f,1.0f);
+              0.0f,1.0f,0.0f);
 
     // x y z linhas
 
@@ -100,9 +117,7 @@ void renderScene(void) {
 
     glBegin(GL_TRIANGLES);
     glColor3f(0.5,0.5,0.5);
-	for(int i = 0; i < ficheiros.size(); i++) {
-        printPontos(ficheiros[i].c_str());
-	}
+    printPontos(pontos);
     glEnd();
 
 	// End of frame
@@ -148,7 +163,7 @@ int main(int argc, char **argv) {
 
     tinyxml2::XMLDocument doc;
 
-    doc.LoadFile("/home/bernardo/Desktop/Generator/Engine/conf.xml");
+    doc.LoadFile("./conf.xml");
 
     tinyxml2::XMLNode *scene = doc.FirstChild();
 
@@ -156,7 +171,7 @@ int main(int argc, char **argv) {
         for(tinyxml2::XMLElement* model = scene->FirstChildElement(); model != NULL; model = model->NextSiblingElement()) {
             const char * file;
             file = model->Attribute("file");
-            ficheiros.push_back(file);
+            guardaPontos(file);
         }
         scene = scene->NextSiblingElement();
     }
