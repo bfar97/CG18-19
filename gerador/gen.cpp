@@ -78,42 +78,42 @@ void printSphere(float radius, int slices, int stacks, FILE* f){
 }
 
 void printBox ( float xx , float yy , float zz , FILE *f ){
-    fprintf(f,"%f %f %f \n",0.0,0.0,zz );
-    fprintf(f,"%f %f %f \n",xx,0.0,zz);
-    fprintf(f,"%f %f %f \n",xx,yy,zz);
-    fprintf(f,"%f %f %f \n",xx,yy,zz);
-    fprintf(f,"%f %f %f \n",0.0,yy,zz);
-    fprintf(f,"%f %f %f \n",0.0,0.0,zz);
-    fprintf(f,"%f %f %f \n",0.0,0.0,0.0);
-    fprintf(f,"%f %f %f \n",xx,yy,0.0);
-    fprintf(f,"%f %f %f \n",xx,0.0,0.0);
-    fprintf(f,"%f %f %f \n",xx,yy,0.0);
-    fprintf(f,"%f %f %f \n",0.0,0.0,0.0);
-    fprintf(f,"%f %f %f \n",0.0,yy,0.0);
-    fprintf(f,"%f %f %f \n",xx,yy,zz);
-    fprintf(f,"%f %f %f \n",xx,yy,0.0);
-    fprintf(f,"%f %f %f \n",0.0,yy,0.0);
-    fprintf(f,"%f %f %f \n",xx,yy,zz);
-    fprintf(f,"%f %f %f \n",0.0,yy,0.0);
-    fprintf(f,"%f %f %f \n",0.0,yy,zz);
-    fprintf(f,"%f %f %f \n",xx,0.0,zz);
-    fprintf(f,"%f %f %f \n",0.0,0.0,0.0);
-    fprintf(f,"%f %f %f \n",xx,0.0,0.0);
-    fprintf(f,"%f %f %f \n",0.0,0.0,0.0);
-    fprintf(f,"%f %f %f \n",xx,0.0,zz);
-    fprintf(f,"%f %f %f \n",0.0,0.0,zz);
-    fprintf(f,"%f %f %f \n",xx,0.0,zz);
-    fprintf(f,"%f %f %f \n",xx,0.0,0.0);
-    fprintf(f,"%f %f %f \n",xx,yy,0.0);
-    fprintf(f,"%f %f %f \n",xx,yy,0.0);
-    fprintf(f,"%f %f %f \n",xx,yy,zz);
-    fprintf(f,"%f %f %f \n",xx,0.0,zz);
-    fprintf(f,"%f %f %f \n",0.0,0.0,zz);
-    fprintf(f,"%f %f %f \n",0.0,yy,0.0);
-    fprintf(f,"%f %f %f \n",0.0,0.0,0.0);
-    fprintf(f,"%f %f %f \n",0.0,0.0,zz);
-    fprintf(f,"%f %f %f \n",0.0,yy,zz);
-    fprintf(f,"%f %f %f \n",0.0,yy,0.0);
+    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,zz/2 );
+    fprintf(f,"%f %f %f \n",xx/2,-yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,-y/2,-zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,-yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,-yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,-yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,-yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,-yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,-yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",xx/2,-yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,-zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,yy/2,zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,yy/2,-zz/2);
 }
 
 void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
@@ -185,21 +185,21 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
 }
 
 void printPlano(float tam,FILE *f){
-    fprintf(f,"%f %f %f \n",tam/2,tam/2, 0.0);
-    fprintf(f,"%f %f %f \n",-tam/2,tam/2, 0.0);
-    fprintf(f,"%f %f %f \n",tam/2,-tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",tam/2,0.0,tam/2;
+    fprintf(f,"%f %f %f \n",-tam/2,0.0,tam/2);
+    fprintf(f,"%f %f %f \n",tam/2,0.0,-tam/2);
 
-    fprintf(f,"%f %f %f \n",tam/2,tam/2, 0.0);
-    fprintf(f,"%f %f %f \n",tam/2,-tam/2, 0.0);
-    fprintf(f,"%f %f %f \n",-tam/2,tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",tam/2,0.0,tam/2);
+    fprintf(f,"%f %f %f \n",tam/2,,0.0-tam/2);
+    fprintf(f,"%f %f %f \n",-tam/2,0.0,tam/2);
 
-    fprintf(f,"%f %f %f \n",tam/2,-tam/2, 0.0);
-    fprintf(f,"%f %f %f \n",-tam/2,tam/2, 0.0);
-    fprintf(f,"%f %f %f \n",-tam/2,-tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",tam/2,0.0,-tam/2);
+    fprintf(f,"%f %f %f \n",-tam/2,0.0,tam/2);
+    fprintf(f,"%f %f %f \n",-tam/2,0.0,-tam/2);
 
-    fprintf(f,"%f %f %f \n",tam/2,-tam/2, 0.0);
-    fprintf(f,"%f %f %f \n",-tam/2,-tam/2, 0.0);
-    fprintf(f,"%f %f %f \n",-tam/2,tam/2, 0.0);
+    fprintf(f,"%f %f %f \n",tam/2,0.0,-tam/2);
+    fprintf(f,"%f %f %f \n",-tam/2,0.0,-tam/2);
+    fprintf(f,"%f %f %f \n",-tam/2,0.0,tam/2);
 }
 
 int main( int i ,char *args[] ) {
