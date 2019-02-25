@@ -82,6 +82,111 @@ bla bla
 \subsection{Plano}
 
 \section{Motor}
+O motor é a parte do nosso trabalho que faz o linking de todas as outras partes que foram realizadas. O motor, lê um ficheiro xml (conf.xml). Este ficheiro contém uma estrutura bastante simples, dividida em scenes.
+
+% Contents do ficheiro conf.xml
+\begin{file}[conf.xml]
+	\begin{lstlisting}[language=XML]
+	<scene>
+		<model file="esfera.txt" />
+		<model file="cone.txt" />
+		<model file="caixa.txt" />
+	</scene>
+	\end{lstlisting}
+	\end{file}
+
+Cada ficheiro que está referenciado nas tags \textbf{<model>} é um ficheiro de texto criado pelo nosso gerador e contém todos os pontos das figuras que queremos representar.
+Como o motor lê os ficheiros de pontos a partir dum ficheiro \textbf{XML} utilizamos um parser xml para \textbf{C++} chamado \textbf{tinyxml-2}.
+
+\begin{file}[main.cpp]
+	\begin{lstlisting}[language=C++]
+...
+tinyxml2::XMLDocument doc;
+
+doc.LoadFile("./conf.xml");
+
+tinyxml2::XMLNode *scene = doc.FirstChild();
+		
+tinyxml2::XMLElement* model;
+
+while(scene) {
+	for(model = scene->FirstChildElement();
+	model != NULL; 
+	model = model->NextSiblingElement()) {
+		const char * file;
+		file = model->Attribute("file");
+		guardaPontos(file);
+	}
+	scene = scene->NextSiblingElement();
+}
+...
+
+	\end{lstlisting}
+\end{file}
+
+Com este snippet de código, criamos um objeto do tipo XMLDocument. De seguida, com a função \textbf{LoadFile}, abrimos o ficheiro de configuração \textbf{conf.xml}, e começamos a manipular o seu conteúdo.
+Criamos um objeto do tipo \textbf{XMLNode} e associamos-lhe a primeira \textbf{tag} do ficheiro conf.xml que é a raiz da estrutura do nosso ficheiro.
+No ciclo while, percorremos todos o ChildElements de scene, que são as tags que guardam os nossos ficheiros das figuras.
+Cada ficheiro de figura tirado dos \textbf{models} é passado à função \textbf{guardaPontos}, que será explicada de seguida.
+
+\begin{file}[main.cpp]
+	\begin{lstlisting}[language=C++]
+...
+struct Pontos {
+    float a;
+    float b;
+    float c;
+};
+
+std::vector<Pontos> pontos;
+
+void guardaPontos(std::string ficheiro) {
+	std::ifstream file;
+	std::string s = "./";
+	s.append(ficheiro.c_str());
+	file.open(s.c_str());
+	float a,b,c;
+	while(file >> a >> b >> c) {
+		Pontos aux;
+		aux.a = a;
+		aux.b = b;
+		aux.c = c;
+		pontos.push_back(aux);
+	}
+}
+...
+	\end{lstlisting}
+\end{file}
+
+Criamos uma estrutura \textbf{Pontos} que tem como campos 3 \textit{floats}, que servem para registar as coordenadas destes. De seguida usamos um vector que utiliza a estrutura enunciada para os guardar.
+À função \textbf{guardaPontos} são passados nomes de ficheiros. A função abre os ficheiros e lê pontos linha a linha, guardando cada coordenada \textit{x, y e z} num \textbf{Ponto} e de seguida inserindo-o no vector.
+
+\begin{info} % Information block
+	A instrução:
+	\begin{lstlisting}[language=C++]
+		file >> a >> b >> c
+	\end{lstlisting}
+	associa a cada uma das variaveis \textit{a, b} e \textit{c}, as coordenadas da linha que está a ser lida em cada iteração do ciclo.
+\end{info}
+
+Por ultimo temos a função \textbf{printPontos}:
+
+\begin{file}[main.cpp]
+	\begin{lstlisting}[language=C++]
+...
+void printPontos(std::vector<Pontos> pontos) {
+  for(int i = 0; i < pontos.size(); i++) {
+		glVertex3f(pontos[i].a,
+			pontos[i].b, 
+			pontos[i].c);
+	}
+}
+...
+	\end{lstlisting}
+\end{file}
+
+Esta função é chamada na \text{renderScene} e geras todos os pontos percorrendo o vector.
+
 
 \section{Conclusão}
 De um modo geral achamos que grupo, apesar das dificuldades,  correspondeu às exigências propostas do enunciado. Tentamos implementar uma solução que suportasse requisitos futuros.  
