@@ -84,7 +84,7 @@ void printBox ( float xx , float yy , float zz , FILE *f ){
     fprintf(f,"%f %f %f \n",xx/2,yy/2,zz/2);
     fprintf(f,"%f %f %f \n",-xx/2,yy/2,zz/2);
     fprintf(f,"%f %f %f \n",-xx/2,-yy/2,zz/2);
-    fprintf(f,"%f %f %f \n",-xx/2,-y/2,-zz/2);
+    fprintf(f,"%f %f %f \n",-xx/2,-yy/2,-zz/2);
     fprintf(f,"%f %f %f \n",xx/2,yy/2,-zz/2);
     fprintf(f,"%f %f %f \n",xx/2,-yy/2,-zz/2);
     fprintf(f,"%f %f %f \n",xx/2,yy/2,-zz/2);
@@ -185,12 +185,12 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
 }
 
 void printPlano(float tam,FILE *f){
-    fprintf(f,"%f %f %f \n",tam/2,0.0,tam/2;
+    fprintf(f,"%f %f %f \n",tam/2,0.0,tam/2);
     fprintf(f,"%f %f %f \n",-tam/2,0.0,tam/2);
     fprintf(f,"%f %f %f \n",tam/2,0.0,-tam/2);
 
     fprintf(f,"%f %f %f \n",tam/2,0.0,tam/2);
-    fprintf(f,"%f %f %f \n",tam/2,,0.0-tam/2);
+    fprintf(f,"%f %f %f \n",tam/2,0.0,-tam/2);
     fprintf(f,"%f %f %f \n",-tam/2,0.0,tam/2);
 
     fprintf(f,"%f %f %f \n",tam/2,0.0,-tam/2);
@@ -203,31 +203,31 @@ void printPlano(float tam,FILE *f){
 }
 
 int main( int i ,char *args[] ) {
-    FILE *f = fopen( "pontos.txt","w");
+    
     
     if ( !strcmp("cone", args[1]) ){
-        
+        FILE *f = fopen( "cone.txt","w");
         printCone( atof(args[2]), atof(args[3]), atof(args[4]), atof(args[5]), f);
     }
-    else {
+    else 
         if ( !strcmp("caixa", args[1]) ){
-            
+            FILE *f = fopen( "caixa.txt","w");
             printBox( atof(args[2]), atof(args[3]), atof(args[4]), f);
+            fclose(f);
         }
-        else{
+        else
             if ( !strcmp("esfera", args[1]) ){
-                
+                FILE *f = fopen( "esfera.txt","w");
                 printSphere( atof( args[2] ), atof( args[3] ), atof( args[4] ), f);
+                fclose(f);
             }
-            else {
+            else 
                 if ( !strcmp("plano", args[1]) ){
-
+                    FILE *f = fopen( "plano.txt","w");
                     printPlano( atof( args[2] ),f );
+                    fclose(f);
                 }
-            }
-        }
-    }
-    fclose(f);
+    
     return 0;
 }
 
