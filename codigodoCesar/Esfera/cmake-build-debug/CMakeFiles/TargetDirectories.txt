@@ -1,3 +1,0 @@
-/home/cesar/Desktop/CG/Trabalho/Esfera/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/cesar/Desktop/CG/Trabalho/Esfera/cmake-build-debug/CMakeFiles/esfera.dir
-/home/cesar/Desktop/CG/Trabalho/Esfera/cmake-build-debug/CMakeFiles/edit_cache.dir

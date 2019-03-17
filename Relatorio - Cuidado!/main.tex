@@ -46,7 +46,7 @@
 
 \begin{abstract}
 A \textbf{Computação Gráfica}, uma das muitas áreas da informática, que assume um papel fulcral em interações homem-máquina e na visualização de dados. o seu espectro de aplicações varia desde geração de imagens até a simulação do mundo real. \par
-	O presente relatório refere-se à primeira fase de entrega da componente prática da Unidade Curricular de \textbf{Computação Gráfica} enquadrada no curso de \textit{Ciências da Computação} da \textit{Universidade do Minho}. 
+	O presente relatório refere-se às diferentes fases de entrega da componente prática da Unidade Curricular de \textbf{Computação Gráfica} enquadrada no curso de \textit{Ciências da Computação} da \textit{Universidade do Minho}. 
 \end{abstract}
 \newpage
 
@@ -61,34 +61,24 @@ A \textbf{Computação Gráfica}, uma das muitas áreas da informática, que ass
 %		Introducao
 %-------------------------------------------------
 
-\section{Introdução}
-
-Nesta fase, foram desenvolvidas duas aplicações. Um \textbf{Gerador} de modelos, que aceite argumentos a partir do terminal, com a função de gerar os pontos de uma primitiva gráfica desejada pelo utilizador, imprimindo estes para um ficheiro. E a última, um \textbf{Motor} que interpreta os pontos gerados anteriormente de acordo com um ficheiro de configuração dado. 
-Com base nos tópicos enunciados e ferramentas exploradas nas aulas implementamos o \textbf{Gerador} e o \textbf{Motor} na linguagem \textbf{C++}. Em particular esta última faz uso de biblioteca \textbf{TinyXML2} para que a leitura dos documentos que lhe são dados com input seja feita de forma simples e consistente. E por fim,  utilizamos a API fornecida pelo \textbf{OpenGl} para dar vida aos nossos modelos.
 
 \subsection{Estrutura do Relatório}
 O presente documento divide-se em duas partes principais. A primeira onde expomos brevemente os conteúdos do trabalho, explicamos funcionalidades, fazemos considerações importantes e demonstração de resultados.
 No fim, em anexo dispomos  todo o código interveniente dos diferentes módulos do projeto. 
-
 \newpage
 
-\section{Gerador}
-<<<<<<< HEAD
+\section{Introdução}
+Na primeira fase, foram desenvolvidas duas aplicações. Um \textbf{Gerador} de modelos, que aceite argumentos a partir do terminal, com a função de gerar os pontos de uma primitiva gráfica desejada pelo utilizador, imprimindo estes para um ficheiro. E a última, um \textbf{Motor} que interpreta os pontos gerados anteriormente de acordo com um ficheiro de configuração dado. 
+Com base nos tópicos enunciados e ferramentas exploradas nas aulas implementamos o \textbf{Gerador} e o \textbf{Motor} na linguagem \textbf{C++}. Em particular esta última faz uso de biblioteca \textbf{TinyXML2} para que a leitura dos documentos que lhe são dados com input seja feita de forma simples e consistente. E por fim,  utilizamos a API fornecida pelo \textbf{OpenGl} para dar vida aos nossos modelos.\\
+Na segunda, adicionamos features ao parser de ficheiros de configuração de \textbf{scenes}, nomeadamente, o reconhecimento de \textbf{scenes} dispostas hierarquicamente usando transformações geométricas (translações, rotações e de escala).
+\newpage
+
+\section{Fase 1}
+
+\subsection{Gerador}
 O nosso \textbf{Gerador} é um pequeno programa em \textbf{C++}, cuja implementação é disponibilizada em anexo, que depois de compilado, o correspondente executável escreve para um ficheiro (um por linha) os vértices da primitiva gráfica desejada  como iremos ilustrar nas seguintes secções.
 
 
-=======
-O nosso \textbf{Gerador} é um pequeno programa em \textbf{C++} que depois de compilado, o correspondente executável escreve para um ficheiro (um por linha) os vértices da primitiva gráfica desejada  como iremos ilustrar nas seguintes secções.
-% Linha de Comandos "screenshot"
-\begin{commandline}
-	\begin{verbatim}
-		$ g++ -o gerador gen.cpp
-		$ ./gerador cone 1 1 20 5
-		$ ls
-		$ gen.cpp			gerador			cone.txt
-	\end{verbatim}
-\end{commandline}
->>>>>>> f5252aa7e0cd7bf5424a9a6c05799f5412a9c4bc
 \subsection{Caixa}
 Para geração desta primitiva o utilizador deverá invocar a aplicação a com o nome do executável seguido dos comprimentos dos lados de um paraleloipipedo no eixos com X’s, Y’s e Z’s respetivamente e por fim o nome do ficheiro destino. A sintaxe é demonstrada no exemplo abaixo:
 
@@ -325,6 +315,44 @@ void printPontos(std::vector<Pontos> pontos) {
 Esta função é chamada na \text{renderScene} e geras todos os pontos percorrendo o vector.
 
 \newpage
+
+\section{Fase 2}
+Após ponderarmos o enunciado, o grupo(e não o césar), decidiu implementar uma classe, em \textbf{C++}, inspirada numa estrutura de dados largamente conhecida na área, denominada por \textbf{Scene Graph}.\\
+A origens desta estrutura de dados remonta aos primordios dos primeiros jogos de video sobre simulação de voo mas actualmente é vulgarmente incluida qualquer aplicação que lide com \textbf{Graphic Rendering}.\\
+
+\subsection{A classe Scene Graph}
+Apesar de disponibilizarmos a implementação a anexo iremos contemplar alguns promenores neste capítulo.\\
+Olhando para o problema de maneira abstrata, ter vários objectos disposição hierárquica, isto é, haver uma relação entre \textbf{scenes} de "descendência" e "herança", motiva em muito a utilização de uma árvore n-ária.\\
+Por exemplo se quiséssemos desenhar um cavalo e o seu cavaleiro, não de maneira independente, mas como se o cavalo fosse uma extensão do seu cavaleiro. O \textbf{Scene Graph} correspondente teria no nodo \textbf{Cavalo} “pendurado” no nodo \textbf{Cavaleiro}.
+Cada nodo, é um \textbf{Group} e nele guardamos as transformações geométricas que a ela lhe dizem respeito assim como um vector de pontos do \textbf{model} que queremos desenhar, e por fim, um array de outros \textbf{Scene Graphs} que representam o proximo nivel de descendentes.\\
+
+\begin{file}[main.cpp]
+	\begin{lstlisting}[language=C++]
+
+class SceneGraph {
+	
+	array<float, 3> scale;
+	array<float, 3> trans;
+	array<float, 4> rot;
+	vector<vector<Ponto>> modelos;
+	vector<SceneGraph> filhos;
+
+}
+
+	\end{lstlisting}
+\end{file}
+
+Estamos então perante a definição de uma \textbf{Rose Tree} de \textbf{Scene Graphs}. Para facilitar a visualização deste conceito dispomos o seguinte exemplo. 
+-- figura de texto vs. diagrama--
+\begin{info}
+	\begin{itemize}
+		\item Todos os nodos filhos herdam as transformações dos pais. No entanto esse comportamento obtido através do \textbf{Glut} via funções como \textbf{glpushMatrix()} e \textbf{glpopMatrix()}, não por os metodos desta classe.   
+		\item Cada nodo pode ter um qualquer número de filhos, mas apenas um pai, i.e., não existe herança multipla.
+		\item Da travassia desde a raiz, até a uma folha, resultam todas as dependências que um certo objecto tem na \textbf{scene} em questão. Garantindo eficiência de operações de edição da \textbf{scene} sem replicação de memória. 
+	\end{itemize}
+\end{info}
+\newpage
+
 \section{Conclusão}
 De um modo geral achamos que grupo, apesar das dificuldades,  correspondeu às exigências propostas do enunciado. Tentamos implementar uma solução que suportasse requisitos futuros.  
 
