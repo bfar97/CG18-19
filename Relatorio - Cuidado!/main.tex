@@ -318,45 +318,87 @@ Esta função é chamada na \text{renderScene} e geras todos os pontos percorren
 
 \section{Fase 2}
 Após ponderarmos o enunciado, o grupo(e não o césar), decidiu implementar uma classe, em \textbf{C++}, inspirada numa estrutura de dados largamente conhecida na área, denominada por \textbf{Scene Graph}.\\
-A origens desta estrutura de dados remonta aos primordios dos primeiros jogos de video sobre simulação de voo mas actualmente é vulgarmente incluida qualquer aplicação que lide com \textbf{Graphic Rendering}.\\
+A origens desta estrutura de dados remonta aos primórdios dos primeiros jogos de vídeo sobre simulação de voo mas actualmente é vulgarmente incluída qualquer aplicação que lide com \textbf{Graphic Rendering}.\\
 
 \subsection{A classe Scene Graph}
-Apesar de disponibilizarmos a implementação a anexo iremos contemplar alguns promenores neste capítulo.\\
+Apesar de disponibilizarmos a implementação a anexo iremos contemplar alguns pormenores neste capítulo.\\
 Olhando para o problema de maneira abstrata, ter vários objectos disposição hierárquica, isto é, haver uma relação entre \textbf{scenes} de "descendência" e "herança", motiva em muito a utilização de uma árvore n-ária.\\
-Por exemplo se quiséssemos desenhar um cavalo e o seu cavaleiro, não de maneira independente, mas como se o cavalo fosse uma extensão do seu cavaleiro. O \textbf{Scene Graph} correspondente teria no nodo \textbf{Cavalo} “pendurado” no nodo \textbf{Cavaleiro}.
-Cada nodo, é um \textbf{Group} e nele guardamos as transformações geométricas que a ela lhe dizem respeito assim como um vector de pontos do \textbf{model} que queremos desenhar, e por fim, um array de outros \textbf{Scene Graphs} que representam o proximo nivel de descendentes.\\
+Por exemplo se quiséssemos desenhar um cavalo e o seu cavaleiro, não de maneira independente, mas como se o cavalo fosse uma extensão do seu cavaleiro. O \textbf{Scene Graph} correspondente teria no nodo \textbf{Cavalo} “pendurado” no nodo \textbf{Cavaleiro}.\\
+Cada nodo, é um \textbf{Group} e nele guardamos as transformações geométricas que a ela lhe dizem respeito assim como um vector de pontos do \textbf{model} que queremos desenhar, e por fim, um array de outros \textbf{Scene Graphs} que representam o próximo nível de descendentes.\\
 
 \begin{file}[main.cpp]
-	\begin{lstlisting}[language=C++]
+    \begin{lstlisting}[language=C++]
 
 class SceneGraph {
-	
-	array<float, 3> scale;
-	array<float, 3> trans;
-	array<float, 4> rot;
-	vector<vector<Ponto>> modelos;
-	vector<SceneGraph> filhos;
+    
+    array<float, 3> scale;
+    array<float, 3> trans;
+    array<float, 4> rot;
+    vector<vector<Ponto>> modelos;
+    vector<SceneGraph> filhos;
 
 }
 
-	\end{lstlisting}
+    \end{lstlisting}
 \end{file}
 
-Estamos então perante a definição de uma \textbf{Rose Tree} de \textbf{Scene Graphs}. Para facilitar a visualização deste conceito dispomos o seguinte exemplo. 
--- figura de texto vs. diagrama--
+Estamos então perante a definição de uma \textbf{Rose Tree} de \textbf{Scene Graphs}. Para facilitar a visualização deste conceito dispomos o seguinte exemplo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=16cm,height=6cm]{exemplo}
+\end{figure}
+
 \begin{info}
-	\begin{itemize}
-		\item Todos os nodos filhos herdam as transformações dos pais. No entanto esse comportamento obtido através do \textbf{Glut} via funções como \textbf{glpushMatrix()} e \textbf{glpopMatrix()}, não por os metodos desta classe.   
-		\item Cada nodo pode ter um qualquer número de filhos, mas apenas um pai, i.e., não existe herança multipla.
-		\item Da travassia desde a raiz, até a uma folha, resultam todas as dependências que um certo objecto tem na \textbf{scene} em questão. Garantindo eficiência de operações de edição da \textbf{scene} sem replicação de memória. 
-	\end{itemize}
+    \begin{itemize}
+        \item Todos os nodos filhos herdam as transformações dos pais. No entanto esse comportamento obtido através do \textbf{Glut} via funções como \textbf{glpushMatrix()} e \textbf{glpopMatrix()}, não por os métodos desta classe.  
+        \item Cada nodo pode ter um qualquer número de filhos, mas apenas um pai, i.e., não existe herança múltipla.
+        \item Da travessia desde a raiz, até a uma folha, resultam todas as dependências que um certo objecto tem na \textbf{scene} em questão. Garantindo eficiência de operações de edição da \textbf{scene} sem replicação de memória.
+    \end{itemize}
 \end{info}
+
+Fixada a estrutura e comportamento do classe. Basta, agora, expor o algoritmo de travessia que é efectuada quando a nossa modesta aplicação lê um ficheiro de configuração. O resto da \textbf{API} é disponibilizada em anexo.
+
+\begin{file}[main.cpp]
+    \begin{lstlisting}[language=C++]
+        
+void SceneGraph::draw() const {
+
+    glPushMatrix();
+            
+    glRotatef(rot[3], rot[0], rot[1], rot[2]);
+    glTranslatef(trans[0], trans[1], trans[2]);
+    glScalef(scale[0], scale[1], scale[2]);
+            
+    glBegin(GL_TRIANGLES);
+            
+    for( vector<Pontos> pnts : this->modelos ) {        
+            for( Pontos p : pnts ) {
+                    glVertex3f(p.a, p.b, p.c);
+                }
+        }
+        
+        glEnd();
+        
+        for( SceneGraph const &tmp : this->filhos ) {
+            tmp.draw();
+        }
+        
+        glPopMatrix();
+    }
+        
+    \end{lstlisting}
+\end{file}
+
+
 \newpage
 
 \section{Conclusão}
-De um modo geral achamos que grupo, apesar das dificuldades,  correspondeu às exigências propostas do enunciado. Tentamos implementar uma solução que suportasse requisitos futuros.  
+De um modo geral achamos que grupo, apesar das dificuldades,  correspondeu às exigências propostas do enunciado. Tentamos implementar uma solução que suportasse requisitos futuros. 
 
 \newpage
+
+
 \appendix
 
 \section{Código do Gerador}
