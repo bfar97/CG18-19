@@ -6,9 +6,45 @@
 
 #IncludeRegexTransform: 
 
-/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp
-sg.h
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/engine.cpp
+../SceneGraph/sg.h
 /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.h
+tinyxml2.h
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/tinyxml2.h
+fstream
+-
+vector
+-
+
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/tinyxml2.h
+ctype.h
+-
+limits.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+stddef.h
+-
+cctype
+-
+climits
+-
+cstdio
+-
+cstdlib
+-
+cstring
+-
+stdint.h
+-
+android/log.h
+-
+assert.h
+-
 
 /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.h
 vector

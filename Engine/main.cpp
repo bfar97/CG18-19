@@ -63,7 +63,7 @@ void renderScene(void) {
     glLoadIdentity();
     gluLookAt(raio * cos(beta) * cos(alfa), raio * cos(beta) * sin(alfa), raio * sin(beta),
               0.0,0.0,0.0,
-              0.0f,1.0f,0.0f);
+              0.0f,0.0f,1.0f);
 
     glBegin(GL_LINES);
     glColor3f(1.0, 0.0, 0.0);

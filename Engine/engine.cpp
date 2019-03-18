@@ -45,9 +45,9 @@ array<float,3> doTranslate(tinyxml2::XMLElement* translate) {
     y = translate->Attribute("y");
     z = translate->Attribute("z");
 
-    x == nullptr ? trans[0] = 0 : trans[0] = atoi(x);
-    y == nullptr ? trans[1] = 0 : trans[1] = atoi(y);
-    z == nullptr ? trans[2] = 0 : trans[2] = atoi(z);
+    x == nullptr ? trans[0] = 0 : trans[0] = atof(x);
+    y == nullptr ? trans[1] = 0 : trans[1] = atof(y);
+    z == nullptr ? trans[2] = 0 : trans[2] = atof(z);
 
     return trans;
 }
@@ -65,10 +65,10 @@ array<float,4> doRotate(tinyxml2::XMLElement* rotate) {
     z = rotate->Attribute("z");
     ang = rotate->Attribute("angle");
 
-    ang == nullptr ? rot[0] = 0 : rot[0] = atoi(ang);
-    x == nullptr ? rot[1] = 0 : rot[1] = atoi(x);
-    y == nullptr ? rot[2] = 0 : rot[2] = atoi(y);
-    z == nullptr ? rot[3] = 0 : rot[3] = atoi(z);
+    ang == nullptr ? rot[0] = 0 : rot[0] = atof(ang);
+    x == nullptr ? rot[1] = 0 : rot[1] = atof(x);
+    y == nullptr ? rot[2] = 0 : rot[2] = atof(y);
+    z == nullptr ? rot[3] = 0 : rot[3] = atof(z);
 
     return rot;
 }
@@ -85,9 +85,9 @@ array<float,3> doScale(tinyxml2::XMLElement* scale) {
     y = scale->Attribute("y");
     z = scale->Attribute("z");
 
-    x == nullptr ? sca[0] = 1 : sca[0] = atoi(x);
-    y == nullptr ? sca[1] = 1 : sca[1] = atoi(y);
-    z == nullptr ? sca[2] = 1 : sca[2] = atoi(z);
+    x == nullptr ? sca[0] = 1 : sca[0] = atof(x);
+    y == nullptr ? sca[1] = 1 : sca[1] = atof(y);
+    z == nullptr ? sca[2] = 1 : sca[2] = atof(z);
 
     return sca;
 }

@@ -11,8 +11,8 @@
             </models>
         </group>
         <group>
-            <translate x="-4" y="-3" z="-2" />
-            <scale x="2" />
+            <translate x="3" y="-3" z="2" />
+            <scale x="0.5" />
             <rotate ang="45" x="1" />
             <models>
                 <model file="esfera.txt"/>
