@@ -14,7 +14,7 @@
 #include <vector>
 #include <fstream>
 #include <list>
-#include "sg.h"
+#include "../SceneGraph/sg.h"
 #include "engine.h"
 
 using namespace tinyxml2;

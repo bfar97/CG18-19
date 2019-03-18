@@ -96,25 +96,25 @@ CMakeFiles/Engine.dir/engine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/engine.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/engine.cpp -o CMakeFiles/Engine.dir/engine.cpp.s
 
-CMakeFiles/Engine.dir/sg.cpp.o: CMakeFiles/Engine.dir/flags.make
-CMakeFiles/Engine.dir/sg.cpp.o: ../sg.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Engine.dir/sg.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/sg.cpp.o -c /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/sg.cpp
+CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.o: CMakeFiles/Engine.dir/flags.make
+CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.o: /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.o -c /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp
 
-CMakeFiles/Engine.dir/sg.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/sg.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/sg.cpp > CMakeFiles/Engine.dir/sg.cpp.i
+CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp > CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.i
 
-CMakeFiles/Engine.dir/sg.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/sg.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/sg.cpp -o CMakeFiles/Engine.dir/sg.cpp.s
+CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp -o CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.s
 
 # Object files for target Engine
 Engine_OBJECTS = \
 "CMakeFiles/Engine.dir/main.cpp.o" \
 "CMakeFiles/Engine.dir/tinyxml2.cpp.o" \
 "CMakeFiles/Engine.dir/engine.cpp.o" \
-"CMakeFiles/Engine.dir/sg.cpp.o"
+"CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.o"
 
 # External object files for target Engine
 Engine_EXTERNAL_OBJECTS =
@@ -122,7 +122,7 @@ Engine_EXTERNAL_OBJECTS =
 Engine: CMakeFiles/Engine.dir/main.cpp.o
 Engine: CMakeFiles/Engine.dir/tinyxml2.cpp.o
 Engine: CMakeFiles/Engine.dir/engine.cpp.o
-Engine: CMakeFiles/Engine.dir/sg.cpp.o
+Engine: CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.o
 Engine: CMakeFiles/Engine.dir/build.make
 Engine: /usr/lib/x86_64-linux-gnu/libGL.so
 Engine: /usr/lib/x86_64-linux-gnu/libGLU.so
