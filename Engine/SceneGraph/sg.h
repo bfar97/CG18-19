@@ -1,10 +1,7 @@
-#ifndef __DEPENDS__
-#define __DEPENDS__
 #include <vector>
 #include <string>
 #include <array>
 #include <GL/glut.h>
-#endif
 
 #ifndef __ESTRUTURAS__
 #define __ESTRUTURAS__

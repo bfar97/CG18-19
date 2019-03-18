@@ -6,6 +6,40 @@
 
 #IncludeRegexTransform: 
 
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/./SceneGraph/sg.h
+vector
+-
+string
+-
+array
+-
+GL/glut.h
+-
+
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/SceneGraph/sg.cpp
+sg.h
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/SceneGraph/sg.h
+
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/SceneGraph/sg.h
+vector
+-
+string
+-
+array
+-
+GL/glut.h
+-
+
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/engine.cpp
+./SceneGraph/sg.h
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/./SceneGraph/sg.h
+tinyxml2.h
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/tinyxml2.h
+fstream
+-
+vector
+-
+
 /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/engine.h
 
 /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/main.cpp
@@ -27,8 +61,8 @@ fstream
 -
 list
 -
-../SceneGraph/sg.h
-/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.h
+./SceneGraph/sg.h
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/./SceneGraph/sg.h
 engine.h
 /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/engine.h
 
@@ -60,15 +94,5 @@ stdint.h
 android/log.h
 -
 assert.h
--
-
-/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.h
-vector
--
-string
--
-array
--
-GL/glut.h
 -
 

@@ -123,6 +123,33 @@ Engine/fast:
 	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/build
 .PHONY : Engine/fast
 
+SceneGraph/sg.o: SceneGraph/sg.cpp.o
+
+.PHONY : SceneGraph/sg.o
+
+# target to build an object file
+SceneGraph/sg.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/SceneGraph/sg.cpp.o
+.PHONY : SceneGraph/sg.cpp.o
+
+SceneGraph/sg.i: SceneGraph/sg.cpp.i
+
+.PHONY : SceneGraph/sg.i
+
+# target to preprocess a source file
+SceneGraph/sg.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/SceneGraph/sg.cpp.i
+.PHONY : SceneGraph/sg.cpp.i
+
+SceneGraph/sg.s: SceneGraph/sg.cpp.s
+
+.PHONY : SceneGraph/sg.s
+
+# target to generate assembly for a file
+SceneGraph/sg.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/SceneGraph/sg.cpp.s
+.PHONY : SceneGraph/sg.cpp.s
+
 engine.o: engine.cpp.o
 
 .PHONY : engine.o
@@ -149,33 +176,6 @@ engine.s: engine.cpp.s
 engine.cpp.s:
 	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/engine.cpp.s
 .PHONY : engine.cpp.s
-
-home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.o: home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.o
-
-.PHONY : home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.o
-
-# target to build an object file
-home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.o:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.o
-.PHONY : home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.o
-
-home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.i: home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.i
-
-.PHONY : home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.i
-
-# target to preprocess a source file
-home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.i:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.i
-.PHONY : home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.i
-
-home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.s: home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.s
-
-.PHONY : home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.s
-
-# target to generate assembly for a file
-home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.s:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.s
-.PHONY : home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp.s
 
 main.o: main.cpp.o
 
@@ -240,12 +240,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Engine"
 	@echo "... edit_cache"
+	@echo "... SceneGraph/sg.o"
+	@echo "... SceneGraph/sg.i"
+	@echo "... SceneGraph/sg.s"
 	@echo "... engine.o"
 	@echo "... engine.i"
 	@echo "... engine.s"
-	@echo "... home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.o"
-	@echo "... home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.i"
-	@echo "... home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

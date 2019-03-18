@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/SceneGraph/sg.cpp">
+			<Option target="Engine"/>
+		</Unit>
+		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/SceneGraph/sg.h">
+			<Option target="Engine"/>
+		</Unit>
 		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/engine.cpp">
 			<Option target="Engine"/>
 		</Unit>
@@ -97,12 +103,6 @@
 			<Option target="Engine"/>
 		</Unit>
 		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/tinyxml2.h">
-			<Option target="Engine"/>
-		</Unit>
-		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.cpp">
-			<Option target="Engine"/>
-		</Unit>
-		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.h">
 			<Option target="Engine"/>
 		</Unit>
 		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/CMakeLists.txt">
