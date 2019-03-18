@@ -1,14 +1,14 @@
 \babel@toc {portuguese}{}
 \contentsline {subsection}{\numberline {0.1}Estrutura do Relat\IeC {\'o}rio}{4}
 \contentsline {section}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{5}
-\contentsline {section}{\numberline {2}Fase 1}{6}
+\contentsline {section}{\numberline {2}Primeira Fase }{6}
 \contentsline {subsection}{\numberline {2.1}Gerador}{6}
 \contentsline {subsection}{\numberline {2.2}Caixa}{6}
 \contentsline {subsection}{\numberline {2.3}Cone}{6}
 \contentsline {subsection}{\numberline {2.4}Esfera}{8}
 \contentsline {subsection}{\numberline {2.5}Plano}{9}
 \contentsline {section}{\numberline {3}Motor}{10}
-\contentsline {section}{\numberline {4}Fase 2}{12}
+\contentsline {section}{\numberline {4}Segunda Fase}{12}
 \contentsline {subsection}{\numberline {4.1}A classe Scene Graph}{12}
 \contentsline {section}{\numberline {5}Conclus\IeC {\~a}o}{14}
 \contentsline {section}{\numberline {A}C\IeC {\'o}digo do Gerador}{15}

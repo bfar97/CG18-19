@@ -73,7 +73,7 @@ Com base nos tópicos enunciados e ferramentas exploradas nas aulas implementamo
 Na segunda, adicionamos features ao parser de ficheiros de configuração de \textbf{scenes}, nomeadamente, o reconhecimento de \textbf{scenes} dispostas hierarquicamente usando transformações geométricas (translações, rotações e de escala).
 \newpage
 
-\section{Fase 1}
+\section{Primeira Fase }
 
 \subsection{Gerador}
 O nosso \textbf{Gerador} é um pequeno programa em \textbf{C++}, cuja implementação é disponibilizada em anexo, que depois de compilado, o correspondente executável escreve para um ficheiro (um por linha) os vértices da primitiva gráfica desejada  como iremos ilustrar nas seguintes secções.
@@ -316,9 +316,10 @@ Esta função é chamada na \text{renderScene} e geras todos os pontos percorren
 
 \newpage
 
-\section{Fase 2}
+\section{Segunda Fase}
 Após ponderarmos o enunciado, o grupo(e não o césar), decidiu implementar uma classe, em \textbf{C++}, inspirada numa estrutura de dados largamente conhecida na área, denominada por \textbf{Scene Graph}.\\
 A origens desta estrutura de dados remonta aos primórdios dos primeiros jogos de vídeo sobre simulação de voo mas actualmente é vulgarmente incluída qualquer aplicação que lide com \textbf{Graphic Rendering}.\\
+Esta estrutura de dados foi revolucionária pelo facto de reduzir drasticamente a memória necessária em cálculos sistemáticos sobre o mundo que está a tentar representar. Os cálculos passaram a ser feitos \textbf{in place} na estrutura dispensando na totalidade a necessidade de memória auxiliar. 
 
 \subsection{A classe Scene Graph}
 Apesar de disponibilizarmos a implementação a anexo iremos contemplar alguns pormenores neste capítulo.\\
@@ -342,7 +343,7 @@ class SceneGraph {
     \end{lstlisting}
 \end{file}
 
-Estamos então perante a definição de uma \textbf{Rose Tree} de \textbf{Scene Graphs}. Para facilitar a visualização deste conceito dispomos o seguinte exemplo.
+Estamos então perante a definição de uma árvore de \textbf{Scene Graphs}. Para facilitar a visualização deste conceito dispomos o seguinte exemplo.
 
 \begin{figure}[H]
     \centering
@@ -353,7 +354,7 @@ Estamos então perante a definição de uma \textbf{Rose Tree} de \textbf{Scene 
     \begin{itemize}
         \item Todos os nodos filhos herdam as transformações dos pais. No entanto esse comportamento obtido através do \textbf{Glut} via funções como \textbf{glpushMatrix()} e \textbf{glpopMatrix()}, não por os métodos desta classe.  
         \item Cada nodo pode ter um qualquer número de filhos, mas apenas um pai, i.e., não existe herança múltipla.
-        \item Da travessia desde a raiz, até a uma folha, resultam todas as dependências que um certo objecto tem na \textbf{scene} em questão. Garantindo eficiência de operações de edição da \textbf{scene} sem replicação de memória.
+        \item Da travessia desde a raiz, até a uma folha, resultam todas as dependências que um certo objecto tem na \textbf{scene} em questão.
     \end{itemize}
 \end{info}
 
@@ -390,11 +391,18 @@ void SceneGraph::draw() const {
     \end{lstlisting}
 \end{file}
 
+\begin{info}
+Com base nos conteúdos abordados nas aulas teóricas decidimos adotar a convenção de ordenar as transformações geométricas \textbf{glRotatef()},\textbf{glTranslatef()} e \textbf{glSclasef()}  pela sequência exposta no código acima.
+\end{info}
 
 \newpage
 
 \section{Conclusão}
-De um modo geral achamos que grupo, apesar das dificuldades,  correspondeu às exigências propostas do enunciado. Tentamos implementar uma solução que suportasse requisitos futuros. 
+Também nos ajudou a possuir mais discernimento sobre a geometria e cálculos matemáticos por detrás de todo um esquema geométrico em 3 dimensões.\\
+Durante a realização dos geradores conseguimos perceber que a propagação dos erros nos cálculos dos ângulos pode ter impacto na apresentação das figuras geométricas.\\
+Apresentou-nos também mais uma oportunidade de aprender e melhorar as nossas capacidades de programação em C++, no uso de LaTex e de ficheiros XML.\\
+Todas as aptidões aqui aprendidas e/ou desenvolvidas, não só a nível escolar mas como a nível de cooperação e  de trabalho de equipa. vão-nos permitir uma melhor realização de projetos futuros.\\
+Está secção poderá ser modificada ao longo das fases de entrega.\\
 
 \newpage
 
