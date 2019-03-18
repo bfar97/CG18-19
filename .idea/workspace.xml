@@ -11,7 +11,36 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ff3089-2f86-46b2-954e-79e93387d027" name="Default Changelist" comment="" />
+    <list default="true" id="a7ff3089-2f86-46b2-954e-79e93387d027" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/1eslc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/1slc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/2eslc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/2slc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/2stk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/4estk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/4stk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/8estk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/caixa.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/capa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/cone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/conesemelhante.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/esfera.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/exemplo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Imagens/plano.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/engine.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/engine.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/sg.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/sg.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/cmake-build-debug/Engine" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/cmake-build-debug/Engine" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/main.aux" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/main.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/main.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/main.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/main.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/main.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/structure.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/main.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/main.tex" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/Engine/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/../CG18-19-backup/Engine/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +51,20 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Engine/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+              <folding>
+                <element signature="e#17#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -117,16 +159,17 @@
       <updated>1552902200708</updated>
       <workItem from="1552902202167" duration="71000" />
       <workItem from="1552943255169" duration="3022000" />
+      <workItem from="1552947355677" duration="1004000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3093000" />
+    <option name="totallyTimeSpent" value="4097000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="25" width="1309" height="743" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35075217" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3570863" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -141,7 +184,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="CMake" order="12" weight="0.32736155" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.3262987" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -153,22 +196,8 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../CG18-19-backup/Engine/CMakeLists.txt" />
-    <entry file="file://$PROJECT_DIR$/Engine/SceneGraph/sg.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-254">
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/SceneGraph/sg.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/SceneGraph/sg.h" />
+    <entry file="file://$PROJECT_DIR$/Engine/SceneGraph/sg.cpp" />
     <entry file="file://$PROJECT_DIR$/Engine/cmake-build-debug/Engine.cbp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -182,15 +211,7 @@
         <state relative-caret-position="-270" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/engine.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/engine.cpp" />
     <entry file="file://$PROJECT_DIR$/Engine/Deps/engine.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -218,16 +239,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding>
-            <element signature="e#17#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Engine/Deps/sg.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-630">
@@ -241,6 +252,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <folding>
+            <element signature="e#17#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
