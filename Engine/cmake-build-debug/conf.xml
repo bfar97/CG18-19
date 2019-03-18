@@ -1,0 +1,22 @@
+<scene>
+    <group>
+        <translate x="1" />
+        <models>
+            <model file="caixa.txt" />
+        </models>
+        <group>
+            <translate y="1" />
+            <models>
+                <model file="esfera.txt" />
+            </models>
+        </group>
+        <group>
+            <translate x="-4" y="-3" z="-2" />
+            <scale x="2" />
+            <rotate ang="45" x="1" />
+            <models>
+                <model file="esfera.txt"/>
+            </models>
+        </group>
+    </group>
+</scene> 
