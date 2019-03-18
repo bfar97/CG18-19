@@ -25,7 +25,7 @@ SceneGraph s_gg;
 
 double alfa = M_PI / 4;
 double beta = M_PI / 4;
-float raio = 15.0f;
+float raio = 350.0f;
 
 
 void changeSize(int w, int h) {
@@ -62,7 +62,7 @@ void renderScene(void) {
 	// set the camera
     glLoadIdentity();
     gluLookAt(raio * cos(beta) * cos(alfa), raio * cos(beta) * sin(alfa), raio * sin(beta),
-              0.0,0.0,0.0,
+              0.0,75.0,0.0,
               0.0f,0.0f,1.0f);
 
     glBegin(GL_LINES);

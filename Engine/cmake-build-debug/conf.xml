@@ -1,22 +1,84 @@
 <scene>
     <group>
-        <translate x="1" />
-        <models>
-            <model file="caixa.txt" />
-        </models>
         <group>
-            <translate y="1" />
+            <!-- Sol -->
+            <translate y="-3" />
+            <scale x="20" y="20" z="20" />
+            <models>
+                <model file="esfera.txt"/>
+            </models>
+        </group>
+        <group>
+            <!-- Mercurio -->
+            <translate y="50" />
+            <scale x="0.5" y="0.5" z="0.5"/>
+            <models>
+                <model file="esfera.txt"/>
+            </models>
+        </group>
+        <group>
+            <!-- Venus -->
+            <translate y="40" />
+            <scale x="1" y="1" z="1"/>
+            <models>
+                <model file="esfera.txt"/>
+            </models>
+        </group>
+        <group>
+            <!-- Terra -->
+            <translate y="55" />
+            <scale x="1" y="1" z="1"/>
+            <models>
+                <model file="esfera.txt"/>
+            </models>
+            <group>
+                <!-- Lua -->
+                <translate x="25" />
+                <scale x="0.2" y="0.2" z="0.2"/>
+                <models>
+                    <model file="esfera.txt"/>
+                </models>
+            </group>
+        </group>
+        <group>
+            <!-- Marte -->
+            <translate y="50" />
+            <scale x="1.4" y="1.4" z="1.4"/>
             <models>
                 <model file="esfera.txt" />
             </models>
         </group>
         <group>
-            <translate x="3" y="-3" z="2" />
-            <scale x="0.5" />
-            <rotate ang="45" x="1" />
+            <!-- Jupiter -->
+            <translate y="25" />
+            <scale x="4" y="4" z="4"/>
             <models>
-                <model file="esfera.txt"/>
+                <model file="esfera.txt" />
+            </models>
+        </group>
+        <group>
+            <!-- Saturno -->
+            <translate y="45" />
+            <scale x="3" y="3" z="3"/>
+            <models>
+                <model file="esfera.txt" />
+            </models>
+        </group>
+        <group>
+            <!-- Urano -->
+            <translate y="85" />
+            <scale x="2" y="2" z="2"/>
+            <models>
+                <model file="esfera.txt" />
+            </models>
+        </group>
+        <group>
+            <!-- Neptuno -->
+            <translate y="190" />
+            <scale x="1" y="1" z="1"/>
+            <models>
+                <model file="esfera.txt" />
             </models>
         </group>
     </group>
-</scene> 
+</scene>

@@ -6,15 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/engine.cpp
-../SceneGraph/sg.h
-/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.h
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/engine.h
+
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/main.cpp
+GLUT/glut.h
+-
+GL/glut.h
+-
+math.h
+-
+iostream
+-
 tinyxml2.h
 /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/tinyxml2.h
-fstream
+string
 -
 vector
 -
+fstream
+-
+list
+-
+../SceneGraph/sg.h
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/SceneGraph/sg.h
+engine.h
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/engine.h
 
 /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/tinyxml2.h
 ctype.h
