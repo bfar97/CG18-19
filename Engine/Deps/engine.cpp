@@ -1,4 +1,4 @@
-#include "./SceneGraph/sg.h"
+#include "sg.h"
 #include "tinyxml2.h"
 #include <fstream>
 #include <vector>

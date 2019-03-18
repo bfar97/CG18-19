@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine
+CMAKE_SOURCE_DIR = /home/cesar/Desktop/CG/Trabalho/CG18-19/Engine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug
+CMAKE_BINARY_DIR = /home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engin
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles /home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,59 +123,86 @@ Engine/fast:
 	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/build
 .PHONY : Engine/fast
 
-SceneGraph/sg.o: SceneGraph/sg.cpp.o
+Deps/engine.o: Deps/engine.cpp.o
 
-.PHONY : SceneGraph/sg.o
-
-# target to build an object file
-SceneGraph/sg.cpp.o:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/SceneGraph/sg.cpp.o
-.PHONY : SceneGraph/sg.cpp.o
-
-SceneGraph/sg.i: SceneGraph/sg.cpp.i
-
-.PHONY : SceneGraph/sg.i
-
-# target to preprocess a source file
-SceneGraph/sg.cpp.i:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/SceneGraph/sg.cpp.i
-.PHONY : SceneGraph/sg.cpp.i
-
-SceneGraph/sg.s: SceneGraph/sg.cpp.s
-
-.PHONY : SceneGraph/sg.s
-
-# target to generate assembly for a file
-SceneGraph/sg.cpp.s:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/SceneGraph/sg.cpp.s
-.PHONY : SceneGraph/sg.cpp.s
-
-engine.o: engine.cpp.o
-
-.PHONY : engine.o
+.PHONY : Deps/engine.o
 
 # target to build an object file
-engine.cpp.o:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/engine.cpp.o
-.PHONY : engine.cpp.o
+Deps/engine.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/engine.cpp.o
+.PHONY : Deps/engine.cpp.o
 
-engine.i: engine.cpp.i
+Deps/engine.i: Deps/engine.cpp.i
 
-.PHONY : engine.i
+.PHONY : Deps/engine.i
 
 # target to preprocess a source file
-engine.cpp.i:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/engine.cpp.i
-.PHONY : engine.cpp.i
+Deps/engine.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/engine.cpp.i
+.PHONY : Deps/engine.cpp.i
 
-engine.s: engine.cpp.s
+Deps/engine.s: Deps/engine.cpp.s
 
-.PHONY : engine.s
+.PHONY : Deps/engine.s
 
 # target to generate assembly for a file
-engine.cpp.s:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/engine.cpp.s
-.PHONY : engine.cpp.s
+Deps/engine.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/engine.cpp.s
+.PHONY : Deps/engine.cpp.s
+
+Deps/sg.o: Deps/sg.cpp.o
+
+.PHONY : Deps/sg.o
+
+# target to build an object file
+Deps/sg.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/sg.cpp.o
+.PHONY : Deps/sg.cpp.o
+
+Deps/sg.i: Deps/sg.cpp.i
+
+.PHONY : Deps/sg.i
+
+# target to preprocess a source file
+Deps/sg.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/sg.cpp.i
+.PHONY : Deps/sg.cpp.i
+
+Deps/sg.s: Deps/sg.cpp.s
+
+.PHONY : Deps/sg.s
+
+# target to generate assembly for a file
+Deps/sg.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/sg.cpp.s
+.PHONY : Deps/sg.cpp.s
+
+Deps/tinyxml2.o: Deps/tinyxml2.cpp.o
+
+.PHONY : Deps/tinyxml2.o
+
+# target to build an object file
+Deps/tinyxml2.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/tinyxml2.cpp.o
+.PHONY : Deps/tinyxml2.cpp.o
+
+Deps/tinyxml2.i: Deps/tinyxml2.cpp.i
+
+.PHONY : Deps/tinyxml2.i
+
+# target to preprocess a source file
+Deps/tinyxml2.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/tinyxml2.cpp.i
+.PHONY : Deps/tinyxml2.cpp.i
+
+Deps/tinyxml2.s: Deps/tinyxml2.cpp.s
+
+.PHONY : Deps/tinyxml2.s
+
+# target to generate assembly for a file
+Deps/tinyxml2.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/tinyxml2.cpp.s
+.PHONY : Deps/tinyxml2.cpp.s
 
 main.o: main.cpp.o
 
@@ -204,33 +231,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-tinyxml2.o: tinyxml2.cpp.o
-
-.PHONY : tinyxml2.o
-
-# target to build an object file
-tinyxml2.cpp.o:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/tinyxml2.cpp.o
-.PHONY : tinyxml2.cpp.o
-
-tinyxml2.i: tinyxml2.cpp.i
-
-.PHONY : tinyxml2.i
-
-# target to preprocess a source file
-tinyxml2.cpp.i:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/tinyxml2.cpp.i
-.PHONY : tinyxml2.cpp.i
-
-tinyxml2.s: tinyxml2.cpp.s
-
-.PHONY : tinyxml2.s
-
-# target to generate assembly for a file
-tinyxml2.cpp.s:
-	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/tinyxml2.cpp.s
-.PHONY : tinyxml2.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -240,18 +240,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Engine"
 	@echo "... edit_cache"
-	@echo "... SceneGraph/sg.o"
-	@echo "... SceneGraph/sg.i"
-	@echo "... SceneGraph/sg.s"
-	@echo "... engine.o"
-	@echo "... engine.i"
-	@echo "... engine.s"
+	@echo "... Deps/engine.o"
+	@echo "... Deps/engine.i"
+	@echo "... Deps/engine.s"
+	@echo "... Deps/sg.o"
+	@echo "... Deps/sg.i"
+	@echo "... Deps/sg.s"
+	@echo "... Deps/tinyxml2.o"
+	@echo "... Deps/tinyxml2.i"
+	@echo "... Deps/tinyxml2.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... tinyxml2.o"
-	@echo "... tinyxml2.i"
-	@echo "... tinyxml2.s"
 .PHONY : help
 
 

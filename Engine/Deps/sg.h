@@ -9,7 +9,8 @@
 using namespace std;
 
 /*
- * Estrutura usada para guardar as coordenadas de um ponto num espaço 3D 
+ * Estrutura usada para guardar as coordenadas de um ponto
+ * num espaco 3D 
  */
 struct ponto {
 	float a;
@@ -21,8 +22,10 @@ typedef struct ponto Pontos;
 
 /*
  * Class principal para codificacao de um SceneGraph basico
- * para os arrays que codificam certas rotacoes, etc a posicao 0 simboliza a coordenada x,
- * a posicao 1 codifca a coordenada y, etc. No caso das rotacoes a posicao 0 codifica o angulo e de seguida sao dados os eixos de rotacao.
+ * para os arrays que codificam certas rotacoes, etc a posicao 0 
+ * simboliza a coordenada x, a posicao 1 codifca a coordenada y, etc.
+ * No caso das rotacoes a posicao 0 codifica o angulo 
+ * e de seguida sao dados os eixos de rotacao.
  *
  * A funcao de desenho considera escalas primeiro, rotacoes de seguida e 
  * finalmente translacoes
