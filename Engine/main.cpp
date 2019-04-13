@@ -1,6 +1,7 @@
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
+#include <GL/glew.h>
 #include <GL/glut.h>
 #endif
 
@@ -17,6 +18,7 @@
 #include "./SceneGraph/sg.h"
 #include "engine.h"
 
+
 using namespace tinyxml2;
 
 SceneGraph s_gg;
@@ -26,6 +28,8 @@ SceneGraph s_gg;
 double alfa = M_PI / 4;
 double beta = M_PI / 4;
 float raio = 350.0f;
+
+extern int nrModels;
 
 
 void changeSize(int w, int h) {
@@ -124,6 +128,10 @@ void processSpecialKeys(int key, int xx, int yy) {
 
 }
 
+void init() {
+    glewInit();
+}
+
 
 
 int main(int argc, char **argv) {
@@ -157,7 +165,10 @@ int main(int argc, char **argv) {
 //  OpenGL settings
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	
+
+// Init function Call
+    init();
+
 // enter GLUT's main cycle
 	glutMainLoop();
 	

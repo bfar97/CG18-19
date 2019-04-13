@@ -25,6 +25,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Compiler/GNU-C.cmake"
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Compiler/GNU-CXX.cmake"
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Compiler/GNU.cmake"
+  "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/FindGLEW.cmake"
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/FindGLUT.cmake"
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/FindOpenGL.cmake"
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/FindPackageHandleStandardArgs.cmake"

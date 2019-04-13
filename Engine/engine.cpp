@@ -3,6 +3,8 @@
 #include <fstream>
 #include <vector>
 
+int nrModels = 0;
+
 vector<Pontos> guardaPontos(std::string ficheiro) {
 
     std::vector<Pontos> pontos;
@@ -30,6 +32,7 @@ std::vector<std::vector<Pontos>> doModels(tinyxml2::XMLElement* models) {
         const char * file;
         file = novo->Attribute("file");
         pPontos.push_back(guardaPontos(file));
+        nrModels++;
     }
     return pPontos;
 }

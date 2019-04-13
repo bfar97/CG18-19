@@ -19,6 +19,7 @@ Call Stack (most recent call first):
   CMakeLists.txt:10 (find_package)
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
+-- Found GLEW: /usr/include  
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug
