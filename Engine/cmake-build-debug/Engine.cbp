@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug"/>
+				<Option working_dir="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug"/>
+				<Option working_dir="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Engine">
-				<Option output="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Engine" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug"/>
+				<Option output="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Engine" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -44,15 +44,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 Engine"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 Engine"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Engine/fast">
-				<Option output="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Engine" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug"/>
+				<Option output="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Engine" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -67,45 +67,45 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 Engine/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 Engine/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug"/>
+				<Option working_dir="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/SceneGraph/sg.cpp">
+		<Unit filename="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/engine.cpp">
 			<Option target="Engine"/>
 		</Unit>
-		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/SceneGraph/sg.h">
+		<Unit filename="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/engine.h">
 			<Option target="Engine"/>
 		</Unit>
-		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/engine.cpp">
+		<Unit filename="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/sg.cpp">
 			<Option target="Engine"/>
 		</Unit>
-		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/engine.h">
+		<Unit filename="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/sg.h">
 			<Option target="Engine"/>
 		</Unit>
-		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/main.cpp">
+		<Unit filename="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/tinyxml2.cpp">
 			<Option target="Engine"/>
 		</Unit>
-		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/tinyxml2.cpp">
+		<Unit filename="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/tinyxml2.h">
 			<Option target="Engine"/>
 		</Unit>
-		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/tinyxml2.h">
+		<Unit filename="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/main.cpp">
 			<Option target="Engine"/>
 		</Unit>
-		<Unit filename="/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/CMakeLists.txt">
+		<Unit filename="/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

@@ -8,15 +8,14 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-//include tinyxml header
 #include <iostream>
-#include "tinyxml2.h"
+#include "./Deps/tinyxml2.h"
 #include <string>
 #include <vector>
 #include <fstream>
 #include <list>
-#include "./SceneGraph/sg.h"
-#include "engine.h"
+#include "./Deps/sg.h"
+#include "./Deps/engine.h"
 
 
 using namespace tinyxml2;
@@ -69,21 +68,6 @@ void renderScene(void) {
               0.0,75.0,0.0,
               0.0f,0.0f,1.0f);
 
-    glBegin(GL_LINES);
-    glColor3f(1.0, 0.0, 0.0);
-    glVertex3f(0, 0, 0);
-    glVertex3f(5, 0, 0);
-
-    glColor3f(0.0, 1.0, 0.0);
-    glVertex3f(0, 0, 0);
-    glVertex3f(0, 5, 0);
-
-    glColor3f(0.0, 0.0, 1.0);
-    glVertex3f(0, 0, 0);
-    glVertex3f(0, 0, 5);
-
-    glEnd();
-
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 
@@ -92,13 +76,6 @@ void renderScene(void) {
 
 	// End of frame
 	glutSwapBuffers();
-}
-
-
-void processKeys(unsigned char c, int xx, int yy) {
-
-
-
 }
 
 
@@ -159,7 +136,6 @@ int main(int argc, char **argv) {
 	glutReshapeFunc(changeSize);
 	
 // Callback registration for keyboard processing
-	glutKeyboardFunc(processKeys);
 	glutSpecialFunc(processSpecialKeys);
 
 //  OpenGL settings

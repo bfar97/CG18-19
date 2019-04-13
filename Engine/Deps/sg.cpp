@@ -85,13 +85,12 @@ void SceneGraph::addModelo( vector<Pontos> c ) {
 
 }
 
-// Funcao responsavel por desnhar a estrutra
+// Funcao responsavel por desenhar a estrutra
 
 void SceneGraph::draw() const {
 
 	glPushMatrix();
-	
-	// ordem ainda nao esta definida, ainda vai ser melhorado
+
 	glScalef(scale[0], scale[1], scale[2]);
 	glRotatef(rot[0], rot[1], rot[2], rot[3]);
 	glTranslatef(trans[0], trans[1], trans[2]);

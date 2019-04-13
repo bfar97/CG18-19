@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Engine.dir/main.cpp.o"
-  "CMakeFiles/Engine.dir/tinyxml2.cpp.o"
-  "CMakeFiles/Engine.dir/engine.cpp.o"
-  "CMakeFiles/Engine.dir/SceneGraph/sg.cpp.o"
+  "CMakeFiles/Engine.dir/Deps/tinyxml2.cpp.o"
+  "CMakeFiles/Engine.dir/Deps/engine.cpp.o"
+  "CMakeFiles/Engine.dir/Deps/sg.cpp.o"
   "Engine.pdb"
   "Engine"
 )

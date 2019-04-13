@@ -1,5 +1,5 @@
-/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine
-CMake Warning (dev) at /home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/FindOpenGL.cmake:270 (message):
+/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/cesar/Desktop/CG/Trabalho/CG18-19/Engine
+CMake Warning (dev) at /home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/FindOpenGL.cmake:270 (message):
   Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when
   available.  Run "cmake --help-policy CMP0072" for policy details.  Use the
   cmake_policy command to set the policy and suppress this warning.
@@ -22,4 +22,4 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- Found GLEW: /usr/include  
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug
+-- Build files have been written to: /home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug

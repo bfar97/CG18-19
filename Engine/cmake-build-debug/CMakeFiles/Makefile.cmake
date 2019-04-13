@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.13.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.13.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.13.2/CMakeSystem.cmake"
+<<<<<<< HEAD
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCInformation.cmake"
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCXXInformation.cmake"
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCommonLanguageInclude.cmake"
@@ -37,6 +38,33 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Platform/UnixPaths.cmake"
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/ProcessorCount.cmake"
   "/home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/SelectLibraryConfigurations.cmake"
+=======
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCInformation.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCXXInformation.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeCommonLanguageInclude.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeFindCodeBlocks.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeGenericSystem.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeInitializeConfigs.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeLanguageInformation.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeSystemSpecificInformation.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Compiler/GNU-C.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Compiler/GNU-CXX.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Compiler/GNU.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/FindGLUT.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/FindOpenGL.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/FindPackageHandleStandardArgs.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/FindPackageMessage.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Platform/Linux-GNU-C.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Platform/Linux-GNU-CXX.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Platform/Linux-GNU.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Platform/Linux.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/Platform/UnixPaths.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/ProcessorCount.cmake"
+  "/home/cesar/Desktop/clion-2018.3.4/bin/cmake/linux/share/cmake-3.13/Modules/SelectLibraryConfigurations.cmake"
+>>>>>>> b80b32f4cdd0323c8b57228b35df36fdb667bea7
   )
 
 # The corresponding makefile is:
