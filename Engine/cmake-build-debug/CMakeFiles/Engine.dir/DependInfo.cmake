@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/engine.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/engine.cpp.o"
-  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/sg.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/sg.cpp.o"
-  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/tinyxml2.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/tinyxml2.cpp.o"
-  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/main.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/main.cpp.o"
+  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/Deps/engine.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/engine.cpp.o"
+  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/Deps/sg.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/sg.cpp.o"
+  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/Deps/tinyxml2.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/tinyxml2.cpp.o"
+  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/main.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

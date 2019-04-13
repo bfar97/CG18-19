@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-/usr/bin/c++  -g   CMakeFiles/Engine.dir/main.cpp.o CMakeFiles/Engine.dir/tinyxml2.cpp.o CMakeFiles/Engine.dir/engine.cpp.o CMakeFiles/Engine.dir/SceneGraph/sg.cpp.o  -o Engine /usr/lib/x86_64-linux-gnu/libGL.so /usr/lib/x86_64-linux-gnu/libGLU.so /usr/lib/x86_64-linux-gnu/libglut.so /usr/lib/x86_64-linux-gnu/libGLEW.so 
-=======
-/usr/bin/c++  -g   CMakeFiles/Engine.dir/main.cpp.o CMakeFiles/Engine.dir/Deps/tinyxml2.cpp.o CMakeFiles/Engine.dir/Deps/engine.cpp.o CMakeFiles/Engine.dir/Deps/sg.cpp.o  -o Engine /usr/lib/x86_64-linux-gnu/libGL.so /usr/lib/x86_64-linux-gnu/libGLU.so /usr/lib/x86_64-linux-gnu/libglut.so /usr/lib/x86_64-linux-gnu/libXmu.so /usr/lib/x86_64-linux-gnu/libXi.so 
->>>>>>> b80b32f4cdd0323c8b57228b35df36fdb667bea7
+/usr/bin/c++  -g   CMakeFiles/Engine.dir/main.cpp.o CMakeFiles/Engine.dir/Deps/tinyxml2.cpp.o CMakeFiles/Engine.dir/Deps/engine.cpp.o CMakeFiles/Engine.dir/Deps/sg.cpp.o  -o Engine /usr/lib/x86_64-linux-gnu/libGL.so /usr/lib/x86_64-linux-gnu/libGLU.so /usr/lib/x86_64-linux-gnu/libglut.so /usr/lib/x86_64-linux-gnu/libGLEW.so 
