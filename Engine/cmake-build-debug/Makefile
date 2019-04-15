@@ -48,10 +48,10 @@ RM = /home/bernardo/Desktop/clion-2018.3.4/bin/cmake/linux/bin/cmake -E remove -
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine
+CMAKE_SOURCE_DIR = /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug
+CMAKE_BINARY_DIR = /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,60 @@ Engine/fast:
 	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/build
 .PHONY : Engine/fast
 
+Deps/catmullmath.o: Deps/catmullmath.cpp.o
+
+.PHONY : Deps/catmullmath.o
+
+# target to build an object file
+Deps/catmullmath.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/catmullmath.cpp.o
+.PHONY : Deps/catmullmath.cpp.o
+
+Deps/catmullmath.i: Deps/catmullmath.cpp.i
+
+.PHONY : Deps/catmullmath.i
+
+# target to preprocess a source file
+Deps/catmullmath.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/catmullmath.cpp.i
+.PHONY : Deps/catmullmath.cpp.i
+
+Deps/catmullmath.s: Deps/catmullmath.cpp.s
+
+.PHONY : Deps/catmullmath.s
+
+# target to generate assembly for a file
+Deps/catmullmath.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/catmullmath.cpp.s
+.PHONY : Deps/catmullmath.cpp.s
+
+Deps/cronometro.o: Deps/cronometro.cpp.o
+
+.PHONY : Deps/cronometro.o
+
+# target to build an object file
+Deps/cronometro.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/cronometro.cpp.o
+.PHONY : Deps/cronometro.cpp.o
+
+Deps/cronometro.i: Deps/cronometro.cpp.i
+
+.PHONY : Deps/cronometro.i
+
+# target to preprocess a source file
+Deps/cronometro.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/cronometro.cpp.i
+.PHONY : Deps/cronometro.cpp.i
+
+Deps/cronometro.s: Deps/cronometro.cpp.s
+
+.PHONY : Deps/cronometro.s
+
+# target to generate assembly for a file
+Deps/cronometro.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/cronometro.cpp.s
+.PHONY : Deps/cronometro.cpp.s
+
 Deps/engine.o: Deps/engine.cpp.o
 
 .PHONY : Deps/engine.o
@@ -149,6 +203,114 @@ Deps/engine.s: Deps/engine.cpp.s
 Deps/engine.cpp.s:
 	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/engine.cpp.s
 .PHONY : Deps/engine.cpp.s
+
+Deps/escala.o: Deps/escala.cpp.o
+
+.PHONY : Deps/escala.o
+
+# target to build an object file
+Deps/escala.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/escala.cpp.o
+.PHONY : Deps/escala.cpp.o
+
+Deps/escala.i: Deps/escala.cpp.i
+
+.PHONY : Deps/escala.i
+
+# target to preprocess a source file
+Deps/escala.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/escala.cpp.i
+.PHONY : Deps/escala.cpp.i
+
+Deps/escala.s: Deps/escala.cpp.s
+
+.PHONY : Deps/escala.s
+
+# target to generate assembly for a file
+Deps/escala.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/escala.cpp.s
+.PHONY : Deps/escala.cpp.s
+
+Deps/parseBezier.o: Deps/parseBezier.cpp.o
+
+.PHONY : Deps/parseBezier.o
+
+# target to build an object file
+Deps/parseBezier.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/parseBezier.cpp.o
+.PHONY : Deps/parseBezier.cpp.o
+
+Deps/parseBezier.i: Deps/parseBezier.cpp.i
+
+.PHONY : Deps/parseBezier.i
+
+# target to preprocess a source file
+Deps/parseBezier.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/parseBezier.cpp.i
+.PHONY : Deps/parseBezier.cpp.i
+
+Deps/parseBezier.s: Deps/parseBezier.cpp.s
+
+.PHONY : Deps/parseBezier.s
+
+# target to generate assembly for a file
+Deps/parseBezier.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/parseBezier.cpp.s
+.PHONY : Deps/parseBezier.cpp.s
+
+Deps/rotacaoT.o: Deps/rotacaoT.cpp.o
+
+.PHONY : Deps/rotacaoT.o
+
+# target to build an object file
+Deps/rotacaoT.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/rotacaoT.cpp.o
+.PHONY : Deps/rotacaoT.cpp.o
+
+Deps/rotacaoT.i: Deps/rotacaoT.cpp.i
+
+.PHONY : Deps/rotacaoT.i
+
+# target to preprocess a source file
+Deps/rotacaoT.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/rotacaoT.cpp.i
+.PHONY : Deps/rotacaoT.cpp.i
+
+Deps/rotacaoT.s: Deps/rotacaoT.cpp.s
+
+.PHONY : Deps/rotacaoT.s
+
+# target to generate assembly for a file
+Deps/rotacaoT.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/rotacaoT.cpp.s
+.PHONY : Deps/rotacaoT.cpp.s
+
+Deps/rotacaoV.o: Deps/rotacaoV.cpp.o
+
+.PHONY : Deps/rotacaoV.o
+
+# target to build an object file
+Deps/rotacaoV.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/rotacaoV.cpp.o
+.PHONY : Deps/rotacaoV.cpp.o
+
+Deps/rotacaoV.i: Deps/rotacaoV.cpp.i
+
+.PHONY : Deps/rotacaoV.i
+
+# target to preprocess a source file
+Deps/rotacaoV.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/rotacaoV.cpp.i
+.PHONY : Deps/rotacaoV.cpp.i
+
+Deps/rotacaoV.s: Deps/rotacaoV.cpp.s
+
+.PHONY : Deps/rotacaoV.s
+
+# target to generate assembly for a file
+Deps/rotacaoV.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/rotacaoV.cpp.s
+.PHONY : Deps/rotacaoV.cpp.s
 
 Deps/sg.o: Deps/sg.cpp.o
 
@@ -177,6 +339,33 @@ Deps/sg.cpp.s:
 	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/sg.cpp.s
 .PHONY : Deps/sg.cpp.s
 
+Deps/timedsg.o: Deps/timedsg.cpp.o
+
+.PHONY : Deps/timedsg.o
+
+# target to build an object file
+Deps/timedsg.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/timedsg.cpp.o
+.PHONY : Deps/timedsg.cpp.o
+
+Deps/timedsg.i: Deps/timedsg.cpp.i
+
+.PHONY : Deps/timedsg.i
+
+# target to preprocess a source file
+Deps/timedsg.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/timedsg.cpp.i
+.PHONY : Deps/timedsg.cpp.i
+
+Deps/timedsg.s: Deps/timedsg.cpp.s
+
+.PHONY : Deps/timedsg.s
+
+# target to generate assembly for a file
+Deps/timedsg.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/timedsg.cpp.s
+.PHONY : Deps/timedsg.cpp.s
+
 Deps/tinyxml2.o: Deps/tinyxml2.cpp.o
 
 .PHONY : Deps/tinyxml2.o
@@ -203,6 +392,60 @@ Deps/tinyxml2.s: Deps/tinyxml2.cpp.s
 Deps/tinyxml2.cpp.s:
 	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/tinyxml2.cpp.s
 .PHONY : Deps/tinyxml2.cpp.s
+
+Deps/translacaoC.o: Deps/translacaoC.cpp.o
+
+.PHONY : Deps/translacaoC.o
+
+# target to build an object file
+Deps/translacaoC.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/translacaoC.cpp.o
+.PHONY : Deps/translacaoC.cpp.o
+
+Deps/translacaoC.i: Deps/translacaoC.cpp.i
+
+.PHONY : Deps/translacaoC.i
+
+# target to preprocess a source file
+Deps/translacaoC.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/translacaoC.cpp.i
+.PHONY : Deps/translacaoC.cpp.i
+
+Deps/translacaoC.s: Deps/translacaoC.cpp.s
+
+.PHONY : Deps/translacaoC.s
+
+# target to generate assembly for a file
+Deps/translacaoC.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/translacaoC.cpp.s
+.PHONY : Deps/translacaoC.cpp.s
+
+Deps/translacaoV.o: Deps/translacaoV.cpp.o
+
+.PHONY : Deps/translacaoV.o
+
+# target to build an object file
+Deps/translacaoV.cpp.o:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/translacaoV.cpp.o
+.PHONY : Deps/translacaoV.cpp.o
+
+Deps/translacaoV.i: Deps/translacaoV.cpp.i
+
+.PHONY : Deps/translacaoV.i
+
+# target to preprocess a source file
+Deps/translacaoV.cpp.i:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/translacaoV.cpp.i
+.PHONY : Deps/translacaoV.cpp.i
+
+Deps/translacaoV.s: Deps/translacaoV.cpp.s
+
+.PHONY : Deps/translacaoV.s
+
+# target to generate assembly for a file
+Deps/translacaoV.cpp.s:
+	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/Deps/translacaoV.cpp.s
+.PHONY : Deps/translacaoV.cpp.s
 
 main.o: main.cpp.o
 
@@ -240,15 +483,42 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Engine"
 	@echo "... edit_cache"
+	@echo "... Deps/catmullmath.o"
+	@echo "... Deps/catmullmath.i"
+	@echo "... Deps/catmullmath.s"
+	@echo "... Deps/cronometro.o"
+	@echo "... Deps/cronometro.i"
+	@echo "... Deps/cronometro.s"
 	@echo "... Deps/engine.o"
 	@echo "... Deps/engine.i"
 	@echo "... Deps/engine.s"
+	@echo "... Deps/escala.o"
+	@echo "... Deps/escala.i"
+	@echo "... Deps/escala.s"
+	@echo "... Deps/parseBezier.o"
+	@echo "... Deps/parseBezier.i"
+	@echo "... Deps/parseBezier.s"
+	@echo "... Deps/rotacaoT.o"
+	@echo "... Deps/rotacaoT.i"
+	@echo "... Deps/rotacaoT.s"
+	@echo "... Deps/rotacaoV.o"
+	@echo "... Deps/rotacaoV.i"
+	@echo "... Deps/rotacaoV.s"
 	@echo "... Deps/sg.o"
 	@echo "... Deps/sg.i"
 	@echo "... Deps/sg.s"
+	@echo "... Deps/timedsg.o"
+	@echo "... Deps/timedsg.i"
+	@echo "... Deps/timedsg.s"
 	@echo "... Deps/tinyxml2.o"
 	@echo "... Deps/tinyxml2.i"
 	@echo "... Deps/tinyxml2.s"
+	@echo "... Deps/translacaoC.o"
+	@echo "... Deps/translacaoC.i"
+	@echo "... Deps/translacaoC.s"
+	@echo "... Deps/translacaoV.o"
+	@echo "... Deps/translacaoV.i"
+	@echo "... Deps/translacaoV.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

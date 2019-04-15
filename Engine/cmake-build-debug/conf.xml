@@ -10,7 +10,12 @@
         </group>
         <group>
             <!-- Mercurio -->
-            <translate y="50" />
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
             <scale x="0.5" y="0.5" z="0.5"/>
             <models>
                 <model file="esfera.txt"/>
@@ -18,7 +23,12 @@
         </group>
         <group>
             <!-- Venus -->
-            <translate y="40" />
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
             <scale x="1" y="1" z="1"/>
             <models>
                 <model file="esfera.txt"/>
@@ -26,7 +36,13 @@
         </group>
         <group>
             <!-- Terra -->
-            <translate y="55" />
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
+            <rotate time="500" x="0" y="1" z="0" />
             <scale x="1" y="1" z="1"/>
             <models>
                 <model file="esfera.txt"/>
@@ -42,7 +58,12 @@
         </group>
         <group>
             <!-- Marte -->
-            <translate y="50" />
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
             <scale x="1.4" y="1.4" z="1.4"/>
             <models>
                 <model file="esfera.txt" />
@@ -50,7 +71,12 @@
         </group>
         <group>
             <!-- Jupiter -->
-            <translate y="25" />
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
             <scale x="4" y="4" z="4"/>
             <models>
                 <model file="esfera.txt" />
@@ -58,7 +84,12 @@
         </group>
         <group>
             <!-- Saturno -->
-            <translate y="45" />
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
             <scale x="3" y="3" z="3"/>
             <models>
                 <model file="esfera.txt" />
@@ -66,7 +97,12 @@
         </group>
         <group>
             <!-- Urano -->
-            <translate y="85" />
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
             <scale x="2" y="2" z="2"/>
             <models>
                 <model file="esfera.txt" />
@@ -74,7 +110,12 @@
         </group>
         <group>
             <!-- Neptuno -->
-            <translate y="190" />
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
             <scale x="1" y="1" z="1"/>
             <models>
                 <model file="esfera.txt" />

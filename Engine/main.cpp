@@ -14,12 +14,13 @@
 #include <vector>
 #include <fstream>
 #include <list>
-#include "./Deps/sg.h"
+#include "./Deps/timedsg.h"
 #include "./Deps/engine.h"
 
 
 using namespace tinyxml2;
 
+TimedSG ts_g;
 SceneGraph s_gg;
 
 #define GROWF 0.01
@@ -70,9 +71,9 @@ void renderScene(void) {
 
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
+    glColor3f(1.0f,1.0f,1.0f);
 
-    glColor3f(0.5,0.5,0.5);
-    s_gg.draw();
+    ts_g.draw();
 
 	// End of frame
 	glutSwapBuffers();
@@ -107,6 +108,14 @@ void processSpecialKeys(int key, int xx, int yy) {
 
 void init() {
     glewInit();
+
+    // OpenGL Settings
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+
+    glEnableClientState(GL_VERTEX_ARRAY);
+
+    ts_g.prep();
 }
 
 
@@ -123,6 +132,7 @@ int main(int argc, char **argv) {
 
     s_gg = doGroup(scene->FirstChildElement("group"));
 
+    ts_g.setSG(s_gg);
 
 // init GLUT and the window
 	glutInit(&argc, argv);
@@ -133,20 +143,17 @@ int main(int argc, char **argv) {
 		
 // Required callback registry 
 	glutDisplayFunc(renderScene);
+	glutIdleFunc(renderScene);
 	glutReshapeFunc(changeSize);
 	
 // Callback registration for keyboard processing
 	glutSpecialFunc(processSpecialKeys);
-
-//  OpenGL settings
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
 
 // Init function Call
     init();
 
 // enter GLUT's main cycle
 	glutMainLoop();
-	
+
 	return 1;
 }

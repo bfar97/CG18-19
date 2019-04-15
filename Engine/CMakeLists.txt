@@ -5,7 +5,10 @@ PROJECT(Engine)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-add_executable(${PROJECT_NAME} main.cpp ./Deps/tinyxml2.cpp ./Deps/engine.cpp ./Deps/sg.cpp)
+add_executable(${PROJECT_NAME} main.cpp ./Deps/tinyxml2.cpp ./Deps/engine.cpp ./Deps/sg.cpp
+		./Deps/catmullmath.cpp ./Deps/cronometro.cpp ./Deps/escala.cpp ./Deps/parseBezier.cpp ./Deps/rotacaoT.cpp
+		./Deps/rotacaoV.cpp ./Deps/timedsg.cpp ./Deps/translacaoC.cpp ./Deps/translacaoV.cpp
+		)
 
 find_package(OpenGL REQUIRED)
 include_directories(${OpenGL_INCLUDE_DIRS})

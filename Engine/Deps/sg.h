@@ -1,42 +1,40 @@
+#ifndef SG__H
+#define SG__H
+
 #include <vector>
 #include <string>
 #include <array>
+#include <GL/glew.h>
 #include <GL/glut.h>
-
-#ifndef __ESTRUTURAS__
-#define __ESTRUTURAS__
+#include "ponto.h"
+#include "escala.h"
+#include "rotacaoT.h"
+#include "rotacaoV.h"
+#include "translacaoC.h"
+#include "translacaoV.h"
+#include "cronometro.h"
 
 using namespace std;
 
-/*
- * Estrutura usada para guardar as coordenadas de um ponto
- * num espaco 3D 
- */
-struct ponto {
-	float a;
-	float b;
-	float c;
-};
-
-typedef struct ponto Pontos;
-
-/*
- * Class principal para codificacao de um SceneGraph basico
- * para os arrays que codificam certas rotacoes, etc a posicao 0 
- * simboliza a coordenada x, a posicao 1 codifca a coordenada y, etc.
- * No caso das rotacoes a posicao 0 codifica o angulo 
- * e de seguida sao dados os eixos de rotacao.
- *
- * A funcao de desenho considera escalas primeiro, rotacoes de seguida e 
- * finalmente translacoes
- */
 class SceneGraph {
 
         // variaveis
-        array<float, 3> scale;
-        array<float, 3> trans;
-        array<float, 4> rot;
-        vector<vector<Pontos>> modelos;
+	// transformacoes nao baseadas em tempo
+        Escala scale;
+        TranslacaoV trans;
+        RotacaoV rot;
+
+	//transformacoes baseadas em tempo
+	TranslacaoC curva;
+	RotacaoT eixo;
+
+	// modelos guardados na scenegraph
+        vector<float> modelos;
+
+	// inteiro responsavel pelos VBOS
+	GLuint vbo;
+
+	// Descendencia do SceneGraph
         vector<SceneGraph> filhos;
         
         public:
@@ -44,24 +42,21 @@ class SceneGraph {
                 SceneGraph();
 
 		// Setters
-                void setScale( array<float, 3> ); 
-                void setTrans( array<float, 3> );
-                void setRot( array<float, 4> ); 
-                void setModelo( vector<vector<Pontos>> );
-
-		// Getters
-                array<float, 3> getScale(); 
-                array<float, 3> getTrans();
-                array<float, 4> getRot();
-                vector<vector<Pontos>> getModelos();
-                vector<SceneGraph> getFilhos();
+                void setScale( Escala ); 
+                void setTrans( TranslacaoV );
+                void setRot( RotacaoV ); 
+                void setModelo( vector<float> );
+		void setCurva( TranslacaoC );
+		void setEixo( RotacaoT );
 
 		// Funcoes adicionais
                 void addFilho( SceneGraph ); 
-                void addModelo( vector<Pontos> );
+
+		// Funcao que trata de inicializar os VBOS
+		void prep();
 
 		// Funcao responsavel por desenhar a estrutura
-                void draw() const;
+                void draw( bool );
 };
 
 #endif

@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/cronometro.cpp
+cronometro.h
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/cronometro.h
+
+/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/cronometro.h
+GL/glew.h
+-
+GL/glut.h
+-
+

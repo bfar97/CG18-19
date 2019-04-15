@@ -7,68 +7,44 @@ using namespace std;
 
 SceneGraph::SceneGraph() {
 
-	this->scale.fill(1.0f);
-	this->trans.fill(0.0f);
-	this->rot.fill(0.0f);
-
 }
 
 // Setters 
 
-void SceneGraph::setScale( array<float, 3> escala) { 
+void SceneGraph::setScale( Escala novaesc ) { 
 
-	this->scale = escala; 
+	this->scale = novaesc; 
 
 }
 
-void SceneGraph::setTrans( array<float, 3> transl ) { 
+void SceneGraph::setTrans( TranslacaoV novatrans ) { 
 
-	this->trans = transl; 
+	this->trans = novatrans; 
 
 }
                 
-void SceneGraph::setRot( array<float, 4> rota) { 
+void SceneGraph::setRot( RotacaoV novorot ) { 
 
-	this->rot = rota; 
+	this->rot = novorot; 
 
 }
 
-void SceneGraph::setModelo(vector<vector<Pontos>> pontos) {
+void SceneGraph::setModelo( vector<float> pontos ) {
 	
 	this->modelos = pontos;
 
 }
 
-// Getters
-                
-array<float, 3> SceneGraph::getScale() { 
-
-	return this->scale; 
-
-}
-                
-array<float, 3> SceneGraph::getTrans() {
-       	
-	return this->trans; 
-
-}
-                
-array<float, 4> SceneGraph::getRot() { 
+void SceneGraph::setCurva( TranslacaoC novacurva ) {
 	
-	return this->rot; 
+	this->curva = novacurva;
+
 
 }
-               
-vector<vector<Pontos>> SceneGraph::getModelos() { 
-	
-	return this-> modelos; 
 
-}
-                
-vector<SceneGraph> SceneGraph::getFilhos() { 
+void SceneGraph::setEixo( RotacaoT novoeixo ) {
 	
-	return this->filhos; 
-
+	this->eixo = novoeixo;
 }
 
 // Funcoes Adicionais
@@ -79,34 +55,36 @@ void SceneGraph::addFilho( SceneGraph c ) {
 
 }
                
-void SceneGraph::addModelo( vector<Pontos> c ) { 
-	
-	this->modelos.push_back( c ); 
+void SceneGraph::prep() {
 
+	glGenBuffers(1, &(this->vbo));
+	glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * this->modelos.size(), this->modelos.data(), GL_STATIC_DRAW);
+
+	for( SceneGraph &tmp : this->filhos ) {
+		tmp.prep();
+	}
 }
 
 // Funcao responsavel por desenhar a estrutra
-
-void SceneGraph::draw() const {
+void SceneGraph::draw( bool updt ) {
 
 	glPushMatrix();
 
-	glScalef(scale[0], scale[1], scale[2]);
-	glRotatef(rot[0], rot[1], rot[2], rot[3]);
-	glTranslatef(trans[0], trans[1], trans[2]);
-	
-	glBegin(GL_TRIANGLES);
-	
-	for( vector<Pontos> const &pnts : this->modelos ) {	
-		for( Pontos const &p : pnts ) {
-        		glVertex3f(p.a, p.b, p.c);
-    		}
-	}
+	this->scale.aplica();
+	this->rot.aplica();
+	this->trans.aplica();
 
-	glEnd();
+	this->curva.aplica( updt );
+	this->eixo.aplica( updt );
 
-	for( SceneGraph const &tmp : this->filhos ) {
-		tmp.draw();
+	glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
+	glVertexPointer(3,GL_FLOAT, 0, 0);
+
+	glDrawArrays(GL_TRIANGLES, 0, this->modelos.size() / 3);
+
+	for( SceneGraph &tmp : this->filhos ) {
+		tmp.draw( updt );
 	}
 
 	glPopMatrix();
