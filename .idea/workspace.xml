@@ -13,33 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a7ff3089-2f86-46b2-954e-79e93387d027" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/1eslc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/1slc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/2eslc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/2slc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/2stk.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/4estk.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/4stk.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/8estk.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/caixa.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/capa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/cone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/conesemelhante.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/esfera.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/exemplo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Imagens/plano.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/engine.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/engine.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/sg.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/sg.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/cmake-build-debug/CMakeFiles/Engine.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/cmake-build-debug/Engine" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/cmake-build-debug/Engine" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/main.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/main.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/main.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/main.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/main.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/main.toc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/structure.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/main.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/main.tex" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/Engine/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/../CG18-19-backup/Engine/cmake-build-debug/" />
@@ -51,7 +24,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Engine/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
@@ -160,16 +133,20 @@
       <workItem from="1552902202167" duration="71000" />
       <workItem from="1552943255169" duration="3022000" />
       <workItem from="1552947355677" duration="1004000" />
+      <workItem from="1552951596304" duration="598000" />
+      <workItem from="1553121764574" duration="600000" />
+      <workItem from="1553183738534" duration="55000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4097000" />
+    <option name="totallyTimeSpent" value="5350000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="25" width="1309" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3570863" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37608868" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -184,7 +161,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="CMake" order="12" weight="0.3262987" />
+      <window_info active="true" anchor="bottom" id="CMake" order="12" visible="true" weight="0.32736155" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
