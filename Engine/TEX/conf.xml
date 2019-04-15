@@ -1,0 +1,125 @@
+<scene>
+    <group>
+        <group>
+            <!-- Sol -->
+            <translate y="-3" />
+            <scale x="20" y="20" z="20" />
+            <models>
+                <model file="esfera.txt"/>
+            </models>
+        </group>
+        <group>
+            <!-- Mercurio -->
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
+            <scale x="0.5" y="0.5" z="0.5"/>
+            <models>
+                <model file="esfera.txt"/>
+            </models>
+        </group>
+        <group>
+            <!-- Venus -->
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
+            <scale x="1" y="1" z="1"/>
+            <models>
+                <model file="esfera.txt"/>
+            </models>
+        </group>
+        <group>
+            <!-- Terra -->
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
+            <rotate time="500" x="0" y="1" z="0" />
+            <scale x="1" y="1" z="1"/>
+            <models>
+                <model file="esfera.txt"/>
+            </models>
+            <group>
+                <!-- Lua -->
+                <translate x="25" />
+                <scale x="0.2" y="0.2" z="0.2"/>
+                <models>
+                    <model file="esfera.txt"/>
+                </models>
+            </group>
+        </group>
+        <group>
+            <!-- Marte -->
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
+            <scale x="1.4" y="1.4" z="1.4"/>
+            <models>
+                <model file="esfera.txt" />
+            </models>
+        </group>
+        <group>
+            <!-- Jupiter -->
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
+            <scale x="4" y="4" z="4"/>
+            <models>
+                <model file="esfera.txt" />
+            </models>
+        </group>
+        <group>
+            <!-- Saturno -->
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
+            <scale x="3" y="3" z="3"/>
+            <models>
+                <model file="esfera.txt" />
+            </models>
+        </group>
+        <group>
+            <!-- Urano -->
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
+            <scale x="2" y="2" z="2"/>
+            <models>
+                <model file="esfera.txt" />
+            </models>
+        </group>
+        <group>
+            <!-- Neptuno -->
+            <translate time="1500">
+                <point x="0" y="55" z="0"/>
+                <point x="-110" y="0" z="0"/>
+                <point x="0" y="-110" z="0"/>
+                <point x="110" y="0" z="0"/>
+            </translate>
+            <scale x="1" y="1" z="1"/>
+            <models>
+                <model file="esfera.txt" />
+            </models>
+        </group>
+    </group>
+</scene>

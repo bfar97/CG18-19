@@ -127,7 +127,7 @@ TranslacaoC doTimeTranslate(tinyxml2::XMLElement* translate) {
         pontos.push_back(aux);
     }
     if(pontos.size() < 4) {
-        perror("São necessário no minimo 4 pontos");
+        perror("Sao necessarios no minimo 4 pontos");
     } else {
         t.setCurva(pontos, tempo);
     }
