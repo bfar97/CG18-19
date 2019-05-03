@@ -27,7 +27,7 @@
 %	ASSIGNMENT INFORMATION
 %----------------------------------------------------------------------------------------
 
-\title{Computação Gráfica: Etapa\#3} % Title of the assignment
+\title{Computação Gráfica: Etapa Final } % Title of the assignment
 
 \author{Bernardo Rodrigues\\ \texttt{a79008@alunos.uminho.pt}\\ \and César Silva\\ \texttt{a77518@alunos.uminho.pt}\\ \and Pedro Faria\\ \texttt{a82725@alunos.uminho.pt} \and Rui Silva\\ \texttt{a77219@alunos.uminho.pt}\\} % Author name and email address
 
@@ -45,7 +45,7 @@
 \newpage
 
 \begin{abstract}
-A \textbf{Computação Gráfica}, uma das muitas áreas da informática, que assume um papel fulcral em interações homem-máquina e na visualização de dados. o seu espectro de aplicações varia desde geração de imagens até a simulação do mundo real. \par
+A \textbf{Computação Gráfica}, uma das muitas áreas da informática, assume um papel fulcral em interações homem-máquina e na visualização de dados. O seu espectro de aplicações varia desde geração de imagens e animações até a simulação do mundo real. \par
 	O presente relatório refere-se às diferentes fases de entrega da componente prática da Unidade Curricular de \textbf{Computação Gráfica} enquadrada no curso de \textit{Ciências da Computação} da \textit{Universidade do Minho}. 
 \end{abstract}
 \newpage
@@ -62,7 +62,10 @@ A \textbf{Computação Gráfica}, uma das muitas áreas da informática, que ass
 \section{Introdução}
 Na primeira fase, foram desenvolvidas duas aplicações. Um \textbf{Gerador} de modelos, que aceite argumentos a partir do terminal, com a função de gerar os pontos de uma primitiva gráfica desejada pelo utilizador, imprimindo estes para um ficheiro. E a última, um \textbf{Motor} que interpreta os pontos gerados anteriormente de acordo com um ficheiro de configuração dado. 
 Com base nos tópicos enunciados e ferramentas exploradas nas aulas implementamos o \textbf{Gerador} e o \textbf{Motor} na linguagem \textbf{C++}. Em particular esta última faz uso de biblioteca \textbf{TinyXML2} para que a leitura dos documentos que lhe são dados com input seja feita de forma simples e consistente. E por fim,  utilizamos a API fornecida pelo \textbf{OpenGl} para dar vida aos nossos modelos.\\
-Na segunda, adicionamos features ao parser de ficheiros de configuração de \textbf{scenes}, nomeadamente, o reconhecimento de \textbf{scenes} dispostas hierarquicamente usando transformações geométricas (translações, rotações e de escala).
+Na segunda, adicionamos features ao parser de ficheiros de configuração de \textbf{scenes}, nomeadamente, o reconhecimento de \textbf{scenes} dispostas hierarquicamente usando transformações geométricas (translações, rotações e de escala).//
+Na terceira fase, \textbf{gerador} passa a usar patches de \textbf{ Bezier}, melhoramos as transformações do \textbf{motor} com curvas de \textbf{Catmull-Rom} e os modelos passam a ser desenhados com \textbf{VBO’s}.
+E na última fase, implementamos texturas e diferentes modos de iluminação.
+
 \newpage
 
 \section{Primeira Fase}
@@ -930,6 +933,9 @@ As novas tags podem ser \textbf{translate time} e \textbf{rotate time} e para is
 Não contemplamos mudanças ao gerador nesta fase. (Bezier patches não implementadas).
 
 \newpage
+\section{Quarta fase}
+
+\subsection{}
 
 \section{Conclusão}
 Também nos ajudou a possuir mais discernimento sobre a geometria e cálculos matemáticos por detrás de todo um esquema geométrico em 3 dimensões.\\
