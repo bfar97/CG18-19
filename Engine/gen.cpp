@@ -89,7 +89,9 @@ void printSphere(float radius, int slices, int stacks, FILE* f){
 }
 
 void printBox ( int ndivs, float xx , float yy , float zz , FILE *f ){
-    fprintf(f,"%d\n", 6*ndivs*ndivs );
+    
+    fprintf(f,"%d\n", 6*6*ndivs*ndivs );
+    
     float xxdelta , yydelta , zzdelta ;
     xxdelta = xx /ndivs;
     yydelta = yy /ndivs;
@@ -285,7 +287,7 @@ int main( int i ,char *args[] ) {
         fclose(f);
     }
     else if ( !strcmp("caixa", args[1]) ){
-        FILE *f = fopen( args[5],"w");
+        FILE *f = fopen( args[6],"w");
         printBox( atof(args[2]), atof(args[3]), atof(args[4]), atof(args[5]), f);
         fclose(f);
     }
