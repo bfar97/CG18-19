@@ -706,7 +706,6 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
     float n[6];
     int j;
 
-
     for(int i = 0; i < slices; i++) {
 
         // codigo responsavel por gerar uma slice da base
@@ -767,18 +766,16 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             vertices.push_back(nstk);
             vertices.push_back(cp2(nr, nslc));
 
-            
             normais.push_back( cp1(nr,nslc) /n[0] );
             normais.push_back( nstk/n[0] );
             normais.push_back( cp2(nr, nslc) /n[0] );
 
-          //  textura.push_back();
+           //  textura.push_back();
            // textura.push_back();
 
             vertices.push_back(cp1(r, slc));
             vertices.push_back(stk);
             vertices.push_back( cp2(r, slc));
-            
             
             normais.push_back(cp1(r, slc) /n[1]);
             normais.push_back(stk/n[1]);
@@ -791,8 +788,6 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             vertices.push_back(stk);
             vertices.push_back(cp2(r, nslc));
 
-            
-
             normais.push_back(cp1(r, nslc) /n[2]);
             normais.push_back(stk/n[2]);
             normais.push_back(cp2(r, nslc)/n[2]);
@@ -804,8 +799,6 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             vertices.push_back(nstk);
             vertices.push_back(cp2(nr, slc));
 
-            
-
             normais.push_back(cp1(nr, slc) /n[3]);
             normais.push_back(nstk/n[3]);
             normais.push_back(cp2(nr, slc)/n[3]);
@@ -816,8 +809,6 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             vertices.push_back(cp1(r, slc));
             vertices.push_back(stk);
             vertices.push_back(cp2(r, slc));
-
-           
 
             normais.push_back(cp1(r, slc) /n[4]);
             normais.push_back(stk/n[4]);
@@ -837,11 +828,7 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             //textura.push_back();
             //textura.push_back();
 
-            
-                          
-           
         }
-
         // codigo responsavel por gerar a slice do topo
         slc = i * slcd;
         nslc = (i+1) * slcd;
@@ -859,10 +846,7 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
         vertices.push_back(cp1(r, nslc));
         vertices.push_back(stk);
         vertices.push_back(cp2(r, nslc));
-
     }
-
-   
 
 }
 
