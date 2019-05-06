@@ -936,50 +936,85 @@ Não contemplamos mudanças ao gerador nesta fase. (Bezier patches não implemen
 \section{Quarta fase}
 
 \subsection{Gerador}
-O \textbf{Gerador} tem de também de imprimir no ficheiro alvo, que á semelhança das fases anteriores é escolhido pelo utilizador, para cada vertice, a normal e as coordenadas no espaço textura.\\
+
+O \textbf{Gerador}, nesta fase, tem de também de imprimir no ficheiro alvo, que á semelhança das fases anteriores é escolhido pelo utilizador, para cada vertice, a normal e as coordenadas no espaço textura.\\
 Por uma questão de organização adoptamos a convenção na primiera linha do ficheiro consta sempre o numero vertices, seguidos das componentes das coordenadas dos vertices, depois das normais e por fim das texturas (uma por linha).\\
 \subsubsection{ Calculo Normais }
-As normais dos pontos de um objecto servem para que o \textbf{OpenGl} possa calcular o comportamento da luz ao longo das superficies da primitiva. Todos estes valores são armazenados na sua forma normalizada para garantir eficiencia e comportamentos "estranhos".\\
+As normais dos pontos de um objecto servem para que o \textbf{OpenGl} possa calcular o comportamento da luz ao longo das superficies da primitiva.
+Todos estes valores são armazenados na sua forma normalizada para garantir eficiencia e comportamentos menos desejados.\\
+
+
+\begin{info}
+	Frequentemente acontece de haver um ponto que pertence a mais que uma fase:\\
+    \begin{itemize}
+        \item O topo do da primitiva Cone
+        \item O vertices da Caixa
+        \item O todos os vertices da esfera
+	\end{itemize}
+	Ora as normais sao calculadas por fase por isso frequentemente existem mais que uma normal assciada a pontos nestas condições
+\end{info}
 
 \subsubsection{ Plano } 
-No caso de um plano XZ é trivialmente verdade que a normal é a mesma em todos os pontos do plano e que é igual a (0,1,0). No entanto, para que o comportamento da luz seja equivalente na frente eno verso desta primitiva, associamos a normal (0,-1,0) aos pontos do verso do plano.
+No caso de um plano XZ é trivialmente verdade que a normal é a mesma em todos os pontos do plano, em particular nas extremidades, e que é igual a (0,1,0). No entanto, para que o comportamento da luz seja equivalente na frente eno verso desta primitiva, associamos a normal (0,-1,0) aos pontos do verso do plano.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=12cm,height=6cm]{plan}
+	\includegraphics[width=6cm,height=5cm]{plan}
 \end{figure}
 
 \subsubsection{ Caixa }
 Se subdividirmos esta primitiva nas fases que a constituem caimos no caso da primitiva anterior. De emidiato vem que para as fases paralelas a XY as normais são (0,0,1) e (0,0,-1), a XZ (0,1,0) e (0,-1,0) e por fim as YZ (1,0,0) e (-1,0,0).\\  
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=12cm,height=6cm]{Capture}
+	\includegraphics[width=6cm,height=5cm]{Capture}
 \end{figure}
 
 \subsubsection{ Esfera }
 No caso desta primitiva, como já trabalhamos com coordenadas polares para gerar os vertices, as normais de cada ponto podem ser facilmente obtidas se considerarmos uma esfera de raio 1.  
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=12cm,height=6cm]{esfer}
+	\includegraphics[width=6cm,height=5cm]{esfer}
 \end{figure}
 
 \subsubsection{ Cone }
-A base do cone esta em XZ, é novamente o caso do plano, portanto, a sua normal é (0,1,0). 
+A base do cone esta em XZ, é novamente o caso do plano, portanto, a sua normal é (0,-1,0). Já para os pontos pertencentes ás fases laterais, a sua normal é dada pela expressão (r * sin( alpha ), stk ou nstk , r * cos(alpha)), onde \textbf{stk} e \textbf{nstk} são as variaveis que armazenam a altura da atual ou proxima \textbf{stack} a que o vertice pertence. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=12cm,height=6cm]{cione}
+	\includegraphics[width=6cm,height=5cm]{cione}
 \end{figure}
+\newpage
 
 \subsubsection{Mapeamento de Texturas}
+As coordenadas de textura servem para que se possa atribuir uma textura a uma primitiva. Cada ponto terá um par de coordenadas x e y, que variam entre 0 e 1. Estas coordenadas são utilizadas pelo \textbf{OpenGL} para saber que ponto na imagem a ser utilizada como textura corresponde ao ponto da primitiva em questão. 
 
 \section{ Esfera }
-Sejam  alpha e beta os angulos que variam, respetivamente [0..2*PI] e [-PI/2 ... PI /2], facilmente se mapeam para espaço textura (u e v ambos a variar entre 0 e 1 ) com a trnaformação u = a / (2 * PI) e v = (b / PI) + 0.5\\ 
 
+Sejam  alpha e beta os angulos que variam, respetivamente [0..2*PI] e [-PI/2 ... PI /2], facilmente se mapeam para espaço textura (u e v ambos a variar entre 0 e 1 ) com a tranformação u = a / (2 * PI) e v = (b / PI) + 0.5 .\\ 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10cm,height=6cm]{esftex}
+\end{figure}
 \section{ Box }
 Sejam i e j as variaveis que iteram as subdivisoes da caixa (ndivs) nos eixos XX e ZZ respetivamente, mapeamos  u =  i / ndivs e v = j / ndivs.
 \subsubsection{ Plano } 
 Neste caso basta mapear as extremidades do plano para a extremidade correspondente da imagem, isto é ,  canto superior direito do plano para (1,1), canto superior esquerdo do plano para (-1,1), canto inferior direito do plano para (1,-1) e o canto inferior esquerdo do plano para (-1,-1) . 
 \subsubsection{ Cone } 
 tambem eu gostava de saber
+
+\section{Motor}
+Completem como acharem melhor tudo a partir daqui é quase tudo copiado do git do barreiro
+\subsection{Lightning}
+
+Atraves de todas as tags e atributos relativamente as luzes consegue-se, facilmente, representar um dos tres tipos de luz em OpenGL.
+As diferentes luzes afetam os objetos pertencentes a um grupo e todos os objetos pertencentes a grupos de hierarquias inferiores. Assim, sempre que se executa a funçao glPushMatrix deve-se realizar o enable de todas as luzes e, por sua vez, desativar todas as luzes quando se executa a funçao glPopMatrix.
+
+\subsubsection{Pontual}
+
+\subsubsection{Direcional}
+
+\subsubsection{Spot ?}
+
+\subsection{Texuring}
+
 
 \section{Conclusão}
 Também nos ajudou a possuir mais discernimento sobre a geometria e cálculos matemáticos por detrás de todo um esquema geométrico em 3 dimensões.\\

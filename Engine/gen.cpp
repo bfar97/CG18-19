@@ -728,9 +728,9 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
         vertices.push_back(0.0);
         vertices.push_back(cp2(radius, nslc));
 
-        normais.push_back( cp1(1.0, nslc)  );
+        normais.push_back( 0.0  );
+        normais.push_back( -1.0 );
         normais.push_back( 0.0 );
-        normais.push_back( cp2(1.0, nslc) );
 
         //textura.push_back();
         //textura.push_back();
@@ -739,9 +739,9 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
         vertices.push_back( 0.0 );
         vertices.push_back( cp2(radius, slc) );
 
-        normais.push_back( cp1(1.0, slc) );
-        normais.push_back(0.0);
-        normais.push_back( cp2(1.0, slc) );
+        normais.push_back( 0.0 );
+        normais.push_back( -1.0 );
+        normais.push_back( 0.0 );
 
         //textura.push_back();
         //textura.push_back();
@@ -755,6 +755,7 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             nstk = (stacks - (j-1)) * stkd;
             r = j * raiod;
             nr = (j - 1) * raiod;
+            
             n[0] = norma(cp1(nr, nslc),nstk,cp2(nr, nslc) );
             n[1] = norma(cp1(r, slc), stk, cp2(r, slc) );
             n[2] = norma(cp1(r, nslc), stk ,cp2(r, nslc));
