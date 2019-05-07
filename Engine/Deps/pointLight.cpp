@@ -1,0 +1,20 @@
+#include "pointLight.h"
+
+PLight::PLight() {
+	this->pLight.fill(0.0f);
+}
+
+void PLight::setPointLight( array<float, 3> axs ) {
+	this->pLight[0] = axs[0];
+	this->pLight[1] = axs[1];
+	this->pLight[2] = axs[2];
+	this->pLight[3] = 1.0f;
+}
+
+void PLight::setLuz( GLenum luz ) {
+	this->luz = luz;
+}
+
+void PLight::aplica() {
+	glLightfv(this->luz, GL_POSITION, this->pLight.data());
+}

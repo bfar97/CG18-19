@@ -1,9 +1,10 @@
-#ifndef SG__H
-#define SG__H
+#ifndef __SG__H
+#define __SG__H
 
 #include <vector>
 #include <string>
 #include <array>
+#include <memory>
 #include <GL/glew.h>
 #include <GL/glut.h>
 #include "ponto.h"
@@ -13,6 +14,7 @@
 #include "translacaoC.h"
 #include "translacaoV.h"
 #include "cronometro.h"
+#include "luz.h"
 
 using namespace std;
 
@@ -30,6 +32,9 @@ class SceneGraph {
 
 	// modelos guardados na scenegraph
         vector<float> modelos;
+
+	//luzes na cena
+	vector<shared_ptr<Luz>> luzes;
 
 	// inteiro responsavel pelos VBOS
 	GLuint vbo;
@@ -51,6 +56,7 @@ class SceneGraph {
 
 		// Funcoes adicionais
                 void addFilho( SceneGraph ); 
+		void addLuz( shared_ptr<Luz> );
 
 		// Funcao que trata de inicializar os VBOS
 		void prep();

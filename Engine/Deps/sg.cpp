@@ -5,11 +5,9 @@ using namespace std;
 // SceneGraph
 // Construtor
 
-SceneGraph::SceneGraph() {
-
-}
-
 // Setters 
+
+SceneGraph::SceneGraph() {}
 
 void SceneGraph::setScale( Escala novaesc ) { 
 
@@ -39,12 +37,12 @@ void SceneGraph::setCurva( TranslacaoC novacurva ) {
 	
 	this->curva = novacurva;
 
-
 }
 
 void SceneGraph::setEixo( RotacaoT novoeixo ) {
 	
 	this->eixo = novoeixo;
+
 }
 
 // Funcoes Adicionais
@@ -52,6 +50,12 @@ void SceneGraph::setEixo( RotacaoT novoeixo ) {
 void SceneGraph::addFilho( SceneGraph c ) { 
 	
 	this->filhos.push_back( c ); 
+
+}
+
+void SceneGraph::addLuz( shared_ptr<Luz> l ) {
+
+	this->luzes.push_back( l );
 
 }
                
@@ -82,6 +86,10 @@ void SceneGraph::draw( bool updt ) {
 	glVertexPointer(3,GL_FLOAT, 0, 0);
 
 	glDrawArrays(GL_TRIANGLES, 0, this->modelos.size() / 3);
+
+	for ( shared_ptr<Luz> l : this->luzes ) {
+		l->aplica();
+	}
 
 	for( SceneGraph &tmp : this->filhos ) {
 		tmp.draw( updt );
