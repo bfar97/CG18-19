@@ -14,6 +14,7 @@
 #define norma(a,b,c)  ( sqrt(a*a + b*b + c*c) )
 #define texX(a)       (a/(2.0*F_PI))
 #define texY(b)       ((b/F_PI)+0.5)
+
 using namespace std;
 
 
@@ -26,23 +27,16 @@ struct Ponto {
 
 
 void printSphere(float radius, int slices, int stacks, FILE* f){
-   
-    //numero de vertices
-    fprintf(f,"%d\n", slices*(6+(stacks-2)*6)*3 );
-   
+    
     // variaveis que vem o numero da stack atual
     vector<float> vertices; 
     vector<float> normais ;
     vector<float> textura ;
     float stkd, slcd;
     float slc, stk, nslc, nstk;
-
     int j;
-
-    
     // delta dos angulos por stack
     stkd = M_PI / stacks;
-
     // delta dos angulos por slice
     slcd = 2 * M_PI / slices;
 
@@ -72,7 +66,6 @@ void printSphere(float radius, int slices, int stacks, FILE* f){
         normais.push_back( ce1( 1.0, nslc, stk) );
         normais.push_back( ce2( 1.0, stk) );
         normais.push_back( ce3( 1.0, nslc, stk) );
-
 
         textura.push_back( texX(nslc) );
         textura.push_back( texY(stk) );
@@ -201,8 +194,10 @@ void printSphere(float radius, int slices, int stacks, FILE* f){
         textura.push_back( texY(stk) );
 
     }
+    //numero de vertices
+    fprintf(f,"%lu\n", vertices.size() );
 
-     for(float i:vertices){
+    for(float i:vertices){
         fprintf(f,"%f\n",i);
     }
 
@@ -217,8 +212,6 @@ void printSphere(float radius, int slices, int stacks, FILE* f){
 }
 
 void printBox ( int ndivs, float xx , float yy , float zz , FILE *f ){
-    
-    fprintf(f,"%d\n", 6*6*ndivs*ndivs*3 );
     
     vector<float> vertices; 
     vector<float> normais ;
@@ -528,7 +521,7 @@ void printBox ( int ndivs, float xx , float yy , float zz , FILE *f ){
     }
 
     //righty
-     for (int i = 0; i < ndivs; i++)
+    for (int i = 0; i < ndivs; i++)
     {
         for (int j = 0; j < ndivs; j++)
         {   
@@ -600,7 +593,7 @@ void printBox ( int ndivs, float xx , float yy , float zz , FILE *f ){
         }
     }
     //lefty
-     for (int i = 0; i < ndivs; i++)
+    for (int i = 0; i < ndivs; i++)
     {
         for (int j = 0; j < ndivs; j++)
         {
@@ -673,6 +666,8 @@ void printBox ( int ndivs, float xx , float yy , float zz , FILE *f ){
         }
     }
 
+    fprintf(f,"%lu\n", vertices.size() );
+
     for(float i:vertices){
         fprintf(f,"%f\n",i);
     }
@@ -689,8 +684,6 @@ void printBox ( int ndivs, float xx , float yy , float zz , FILE *f ){
 
 void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
     
-     //numero de vertices
-    fprintf(f,"%d\n", slices*(6+(stacks-1)*6)*3 );
 
     vector<float> vertices; 
     vector<float> normais ;
@@ -879,6 +872,21 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
         textura.push_back( j * texstk );
     }
 
+    fprintf(f,"%lu\n", vertices.size() );
+
+    for(float i:vertices){
+        fprintf(f,"%f\n",i);
+    }
+
+    for(float i:normais){
+        fprintf(f,"%f\n",i);
+    }
+
+    for(float i:textura){
+        fprintf(f,"%f\n",i);
+    }
+
+
 }
 
 void printPlano(float tam,FILE *f){
@@ -887,140 +895,140 @@ void printPlano(float tam,FILE *f){
     vector<float> normais ;
     vector<float> textura ;
 
+
+    vertices.push_back(tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(tam/2);
     
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+
+    textura.push_back(1.0);
+    textura.push_back(0.0);
+
+    vertices.push_back(-tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(tam/2);
+    
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+
+    textura.push_back(0.0);
+    textura.push_back(0.0);
+
+    vertices.push_back(tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(-tam/2);
+    
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+
+    textura.push_back(1.0);
+    textura.push_back(1.0);
+
+    vertices.push_back(tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(tam/2);
+    
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+
+    textura.push_back(1.0);
+    textura.push_back(0.0);
+
+    vertices.push_back(tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(-tam/2);
+    
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+
+    textura.push_back(1.0);
+    textura.push_back(1.0);
+
+    vertices.push_back(-tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(tam/2);
+    
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+    
+    textura.push_back(0.0);
+    textura.push_back(0.0);
+
+    vertices.push_back(tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(-tam/2);
+
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+
+    textura.push_back(1.0);
+    textura.push_back(1.0);
+
+    vertices.push_back(-tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(tam/2);
+    
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+
+    textura.push_back(0.0);
+    textura.push_back(0.0);
+
+    vertices.push_back(-tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(-tam/2);
+    
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+
+    textura.push_back(0.0);
+    textura.push_back(1.0);
+
+    vertices.push_back(tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(-tam/2);
+    
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+
+    textura.push_back(1.0);
+    textura.push_back(1.0);
+
+    vertices.push_back(-tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(-tam/2);
+    
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+
+    textura.push_back(1.0);
+    textura.push_back(0.0);
+
+    vertices.push_back(-tam/2);
+    vertices.push_back(0.0);
+    vertices.push_back(tam/2);
+    
+    normais.push_back(0.0);
+    normais.push_back(1.0);
+    normais.push_back(0.0);
+
+    textura.push_back(0.0);
+    textura.push_back(0.0);
+
     fprintf(f,"36\n");
-
-    vertices.push_back(tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(tam/2);
-    
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-
-    textura.push_back(1.0);
-    textura.push_back(0.0);
-
-    vertices.push_back(-tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(tam/2);
-    
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-
-    textura.push_back(0.0);
-    textura.push_back(0.0);
-
-    vertices.push_back(tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(-tam/2);
-    
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-
-    textura.push_back(1.0);
-    textura.push_back(1.0);
-
-    vertices.push_back(tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(tam/2);
-    
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-
-    textura.push_back(1.0);
-    textura.push_back(0.0);
-
-    vertices.push_back(tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(-tam/2);
-    
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-
-    textura.push_back(1.0);
-    textura.push_back(1.0);
-
-    vertices.push_back(-tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(tam/2);
-    
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-    
-    textura.push_back(0.0);
-    textura.push_back(0.0);
-
-    vertices.push_back(tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(-tam/2);
-
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-
-    textura.push_back(1.0);
-    textura.push_back(1.0);
-
-    vertices.push_back(-tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(tam/2);
-    
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-
-    textura.push_back(0.0);
-    textura.push_back(0.0);
-
-    vertices.push_back(-tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(-tam/2);
-    
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-
-    textura.push_back(0.0);
-    textura.push_back(1.0);
-
-    vertices.push_back(tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(-tam/2);
-    
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-
-    textura.push_back(1.0);
-    textura.push_back(1.0);
-
-    vertices.push_back(-tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(-tam/2);
-    
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-
-    textura.push_back(1.0);
-    textura.push_back(0.0);
-
-    vertices.push_back(-tam/2);
-    vertices.push_back(0.0);
-    vertices.push_back(tam/2);
-    
-    normais.push_back(0.0);
-    normais.push_back(1.0);
-    normais.push_back(0.0);
-
-    textura.push_back(0.0);
-    textura.push_back(0.0);
 
     for( float i: vertices ){
         fprintf(f,"%f\n", i);
@@ -1034,13 +1042,15 @@ void printPlano(float tam,FILE *f){
         fprintf(f,"%f\n", i);
     }
 
+
+
 }
 
 int main( int i ,char *args[] ) {
 
     if ( !strcmp("cone", args[1]) ){
         FILE *f = fopen( args[6],"w");
-        printCone( atof(args[2]), atof(args[3]), atof(args[4]), atof(args[5]), f);
+        printCone( atof(args[2]), atof(args[3]), atoi(args[4]), atoi(args[5]), f);
         fclose(f);
     }
     else if ( !strcmp("caixa", args[1]) ){
@@ -1050,7 +1060,7 @@ int main( int i ,char *args[] ) {
     }
     else if ( !strcmp("esfera", args[1]) ){
         FILE *f = fopen( args[5],"w");
-        printSphere( atof( args[2] ), atof( args[3] ), atof( args[4] ), f);
+        printSphere( atof( args[2] ), atoi( args[3] ), atoi( args[4] ), f);
         fclose(f);
     }
     else if ( !strcmp("plano", args[1]) ){
