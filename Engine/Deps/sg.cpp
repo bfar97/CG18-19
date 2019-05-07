@@ -7,6 +7,8 @@ using namespace std;
 
 // Setters 
 
+SceneGraph::SceneGraph() {}
+
 void SceneGraph::setScale( Escala novaesc ) { 
 
 	this->scale = novaesc; 
