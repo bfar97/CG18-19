@@ -14,9 +14,11 @@
 #define norma(a,b,c)  ( sqrt(a*a + b*b + c*c) )
 #define texX(a)       (a/(2.0*F_PI))
 #define texY(b)       ((b/F_PI)+0.5)
+#define crossX( ay, bz, az, by) (ay * bz + az * by )
+#define crossY( az, bx, ax, bz) (az * bx + ax * bz )
+#define crossZ( ax, by, ay, bx) (ax * by + ay * bx )
 
 using namespace std;
-
 
 struct Ponto {
     float x;
@@ -691,6 +693,7 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
 
     float stkd, slcd, raiod;
     float stk, slc, nslc, nstk, nr, r;
+    float  nX , nY, nZ , nn, nX2 , nY2, nZ2 , nn2;
 
     stkd = altura / stacks;
     slcd = 2 * M_PI / slices;
@@ -701,7 +704,6 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
     texslc = 1 / slices;
     texstk = 0.625 / stacks;
 
-    float n[10];
     int j;
 
     for(int i = 0; i < slices; i++) {
@@ -744,9 +746,7 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
         textura.push_back( 0.8125 + cp1(0.1875, slc));
         textura.push_back( 0.18 + cp2(0.1875, slc));
 
-        // codigo responsavel por gerar as slices laterais
-        for(j = stacks ; j > 1; j--) {
-
+            j=stacks;
             slc = i * slcd;
             nslc = (i+1) * slcd;
             stk = (stacks - j) * stkd;
@@ -754,20 +754,45 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             r = j * raiod;
             nr = (j - 1) * raiod;
             
-            n[0] = norma(cp1(nr, nslc),nstk,cp2(nr, nslc) );
-            n[1] = norma(cp1(r, slc), stk, cp2(r, slc) );
-            n[2] = norma(cp1(r, nslc), stk ,cp2(r, nslc));
-            n[3] = norma(cp1(nr, slc), nstk, cp2(nr, slc) );
-            n[4] = norma(cp1(r,slc) , stk, cp2(r, slc) );
-            n[5] = norma(cp1(nr, nslc), nstk, cp2(nr, nslc));
 
+            nX = crossX(  stk, cp2(nr,slc), cp2(r, nslc), nstk );
+            nY = crossY(cp2(r,nslc), cp1(nr,slc), cp1(r,nslc), cp2(nr,slc));
+            nZ = crossZ ( cp1(r,nslc), nstk, stk, cp1(nr,slc));
+
+            nn = norma(nX, nY, nZ);
+
+            nX /= nn ; 
+            nY /= nn ; 
+            nZ /= nn ; 
+
+            nX2 = crossX(nstk, cp2(r,slc), cp2(nr,nslc), stk); 
+            nY2 = crossY(cp2(nr,nslc), cp1(r,slc), cp1(nr,nslc), cp2(r,slc));
+            nZ2 = crossZ(cp1(nr,nslc), stk, nstk, cp1(r,slc));
+
+            nn2 = norma(nX2,nY2,nZ2);
+
+            nX2 /= nn2 ; 
+            nY2 /= nn2 ; 
+            nZ2 /= nn2 ; 
+
+        // codigo responsavel por gerar as slices laterais
+        for(j = stacks ; j > 1; j--) {
+            
+            slc = i * slcd;
+            nslc = (i+1) * slcd;
+            stk = (stacks - j) * stkd;
+            nstk = (stacks - (j-1)) * stkd;
+            r = j * raiod;
+            nr = (j - 1) * raiod;
+            
+            
             vertices.push_back(cp1(nr, nslc));
             vertices.push_back(nstk);
             vertices.push_back(cp2(nr, nslc));
 
-            normais.push_back( cp1(nr,nslc) /n[0] );
-            normais.push_back( nstk/n[0] );
-            normais.push_back( cp2(nr, nslc) /n[0] );
+            normais.push_back( nX2 );
+            normais.push_back( nY2 );
+            normais.push_back( nZ2 );
 
             textura.push_back( (i+1) * texslc );
             textura.push_back( (j+1) * texstk );
@@ -776,9 +801,9 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             vertices.push_back(stk);
             vertices.push_back( cp2(r, slc));
             
-            normais.push_back(cp1(r, slc) /n[1]);
-            normais.push_back(stk/n[1]);
-            normais.push_back(cp2(r, slc)/n[1]);
+            normais.push_back( nX );
+            normais.push_back( nY );
+            normais.push_back( nZ );
 
             textura.push_back( i * texslc);
             textura.push_back( j * texstk);
@@ -787,9 +812,9 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             vertices.push_back(stk);
             vertices.push_back(cp2(r, nslc));
 
-            normais.push_back(cp1(r, nslc) /n[2]);
-            normais.push_back(stk/n[2]);
-            normais.push_back(cp2(r, nslc)/n[2]);
+            normais.push_back( nX2 );
+            normais.push_back( nY2 );
+            normais.push_back( nZ2 );
 
             textura.push_back( (i+1) * texslc );
             textura.push_back( j * texstk );
@@ -798,9 +823,9 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             vertices.push_back(nstk);
             vertices.push_back(cp2(nr, slc));
 
-            normais.push_back(cp1(nr, slc) /n[3]);
-            normais.push_back(nstk/n[3]);
-            normais.push_back(cp2(nr, slc)/n[3]);
+            normais.push_back( nX );
+            normais.push_back( nY );
+            normais.push_back( nZ );
 
             textura.push_back( i * texslc );
             textura.push_back( (j+1) * texstk );
@@ -809,9 +834,9 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             vertices.push_back(stk);
             vertices.push_back(cp2(r, slc));
 
-            normais.push_back(cp1(r, slc) /n[4]);
-            normais.push_back(stk/n[4]);
-            normais.push_back(cp2(r, slc)/n[4]);
+            normais.push_back( nX );
+            normais.push_back( nY );
+            normais.push_back( nZ );
 
             textura.push_back( i * texslc );
             textura.push_back( j * texstk );
@@ -820,9 +845,9 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
             vertices.push_back(nstk);
             vertices.push_back(cp2(nr, nslc));
 
-            normais.push_back(cp1(nr, nslc) /n[5]);
-            normais.push_back(nstk/n[5]);
-            normais.push_back(cp2(nr, nslc) /n[5]);
+            normais.push_back( nX2 );
+            normais.push_back( nY2 );
+            normais.push_back( nZ2 );
 
             textura.push_back( (i+1) * texslc );
             textura.push_back( (j+1) * texstk );
@@ -833,10 +858,6 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
         nslc = (i+1) * slcd;
         stk = (stacks - j) * stkd;
         r = j * raiod;
-
-        n[6] = norma(cp1(r, slc),stk,cp2(r, slc)) ;
-        n[7] = norma(cp1(r, nslc),stk,cp2(r, nslc)) ;
-
 
         vertices.push_back(0.0);
         vertices.push_back(altura);
@@ -853,9 +874,9 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
         vertices.push_back(stk);
         vertices.push_back( cp2(r, slc));
 
-        normais.push_back(cp1(r, slc) /n[6]);
-        normais.push_back(stk/n[6]);
-        normais.push_back(cp2(r, slc)/n[6]);
+        normais.push_back( nX );
+        normais.push_back( nY );
+        normais.push_back( nZ );
 
         textura.push_back( i * texslc );
         textura.push_back( j * texslc );
@@ -864,9 +885,9 @@ void printCone(float radius, float altura, int slices, int stacks, FILE *f) {
         vertices.push_back(stk);
         vertices.push_back(cp2(r, nslc));
 
-        normais.push_back(cp1(r, nslc) /n[7]);
-        normais.push_back(stk/n[7]);
-        normais.push_back(cp2(r, nslc) /n[7]);
+        normais.push_back(nX2);
+        normais.push_back(nY2);
+        normais.push_back(nZ2);
 
         textura.push_back( (i+1) * texslc);
         textura.push_back( j * texstk );
@@ -1041,8 +1062,6 @@ void printPlano(float tam,FILE *f){
     for( float i: textura ){
         fprintf(f,"%f\n", i);
     }
-
-
 
 }
 

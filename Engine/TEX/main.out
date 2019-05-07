@@ -29,17 +29,23 @@
 \BOOKMARK [1][-]{section.7}{ Box }{}% 29
 \BOOKMARK [2][-]{subsubsection.7.0.1}{ Plano }{section.7}% 30
 \BOOKMARK [3][-]{subsubsection.7.0.2}{ Cone }{subsubsection.7.0.1}% 31
-\BOOKMARK [1][-]{section.8}{Conclus\343o}{}% 32
-\BOOKMARK [1][-]{appendix.A}{Biblioteca CatmullRomMath}{}% 33
-\BOOKMARK [1][-]{appendix.B}{Biblioteca Cronometro}{}% 34
-\BOOKMARK [1][-]{appendix.C}{Biblioteca Engine}{}% 35
-\BOOKMARK [1][-]{appendix.D}{Biblioteca Escala}{}% 36
-\BOOKMARK [1][-]{appendix.E}{Biblioteca RotacaoT}{}% 37
-\BOOKMARK [1][-]{appendix.F}{Biblioteca RotacaoV}{}% 38
-\BOOKMARK [1][-]{appendix.G}{Biblioteca SceneGraph}{}% 39
-\BOOKMARK [1][-]{appendix.H}{Biblioteca TimedSG}{}% 40
-\BOOKMARK [1][-]{appendix.I}{Biblioteca TranslacaoC}{}% 41
-\BOOKMARK [1][-]{appendix.J}{Biblioteca TranslacaoV}{}% 42
-\BOOKMARK [1][-]{appendix.K}{C\363digo da Main}{}% 43
-\BOOKMARK [1][-]{appendix.L}{Codigo do Gerador}{}% 44
-\BOOKMARK [1][-]{appendix.M}{XML usado para a anima\347\343o}{}% 45
+\BOOKMARK [1][-]{section.8}{Motor}{}% 32
+\BOOKMARK [2][-]{subsection.8.1}{Lightning}{section.8}% 33
+\BOOKMARK [3][-]{subsubsection.8.1.1}{Pontual}{subsection.8.1}% 34
+\BOOKMARK [3][-]{subsubsection.8.1.2}{Direcional}{subsection.8.1}% 35
+\BOOKMARK [3][-]{subsubsection.8.1.3}{Spot ?}{subsection.8.1}% 36
+\BOOKMARK [2][-]{subsection.8.2}{Texuring}{section.8}% 37
+\BOOKMARK [1][-]{section.9}{Conclus\343o}{}% 38
+\BOOKMARK [1][-]{appendix.A}{Biblioteca CatmullRomMath}{}% 39
+\BOOKMARK [1][-]{appendix.B}{Biblioteca Cronometro}{}% 40
+\BOOKMARK [1][-]{appendix.C}{Biblioteca Engine}{}% 41
+\BOOKMARK [1][-]{appendix.D}{Biblioteca Escala}{}% 42
+\BOOKMARK [1][-]{appendix.E}{Biblioteca RotacaoT}{}% 43
+\BOOKMARK [1][-]{appendix.F}{Biblioteca RotacaoV}{}% 44
+\BOOKMARK [1][-]{appendix.G}{Biblioteca SceneGraph}{}% 45
+\BOOKMARK [1][-]{appendix.H}{Biblioteca TimedSG}{}% 46
+\BOOKMARK [1][-]{appendix.I}{Biblioteca TranslacaoC}{}% 47
+\BOOKMARK [1][-]{appendix.J}{Biblioteca TranslacaoV}{}% 48
+\BOOKMARK [1][-]{appendix.K}{C\363digo da Main}{}% 49
+\BOOKMARK [1][-]{appendix.L}{Codigo do Gerador}{}% 50
+\BOOKMARK [1][-]{appendix.M}{XML usado para a anima\347\343o}{}% 51

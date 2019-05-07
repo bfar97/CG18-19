@@ -998,12 +998,15 @@ Sejam i e j as variaveis que iteram as subdivisoes da caixa (ndivs) nos eixos XX
 \subsubsection{ Plano } 
 Neste caso basta mapear as extremidades do plano para a extremidade correspondente da imagem, isto é ,  canto superior direito do plano para (1,1), canto superior esquerdo do plano para (-1,1), canto inferior direito do plano para (1,-1) e o canto inferior esquerdo do plano para (-1,-1) . 
 \subsubsection{ Cone } 
-tambem eu gostava de saber
+Para mapear esta primitiva para o seu correspondente espaço textura, desenvolvemos o atlas representado pela figura abaixo.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10cm,height=6cm]{Untitled}
+\end{figure}
 
 \section{Motor}
 Completem como acharem melhor tudo a partir daqui é quase tudo copiado do git do barreiro
 \subsection{Lightning}
-
 Atraves de todas as tags e atributos relativamente as luzes consegue-se, facilmente, representar um dos tres tipos de luz em OpenGL.
 As diferentes luzes afetam os objetos pertencentes a um grupo e todos os objetos pertencentes a grupos de hierarquias inferiores. Assim, sempre que se executa a funçao glPushMatrix deve-se realizar o enable de todas as luzes e, por sua vez, desativar todas as luzes quando se executa a funçao glPopMatrix.
 
