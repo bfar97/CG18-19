@@ -1005,12 +1005,17 @@ Para mapear esta primitiva para o seu correspondente espaço textura, desenvolve
 \end{figure}
 
 \section{Motor}
-Completem como acharem melhor tudo a partir daqui é quase tudo copiado do git do barreiro
+Nesta face o sistema de classes desenvolvido anteriormente para o \textbf{motor} foi expandido para suportar \textbf{texture mapping} e diferentes modos de \textbf{lightning}. 
 \subsection{Lightning}
-Atraves de todas as tags e atributos relativamente as luzes consegue-se, facilmente, representar um dos tres tipos de luz em OpenGL.
-As diferentes luzes afetam os objetos pertencentes a um grupo e todos os objetos pertencentes a grupos de hierarquias inferiores. Assim, sempre que se executa a funçao glPushMatrix deve-se realizar o enable de todas as luzes e, por sua vez, desativar todas as luzes quando se executa a funçao glPopMatrix.
 
+Atraves das tags e atributos relativamente as luzes consegue-se, facilmente, representar um dos tres tipos de luz em OpenGL a partir dos nossos ficheiros de configuração \textbf{XML}.
+As diferentes luzes afetam os objetos pertencentes a um grupo e todos os objetos pertencentes a grupos de hierarquias inferiores.
+Internamente o \textbf{motor} guarda as diferentes configurações e tipos de luz na classe \textbf{Luz}, que tem três outras descendentes a \textbf{pontual}, \textbf{direcional} e de \textbf{foco?}.\\
+Todas elas partilham um posição no espaço, e por esta razão, posemos em evidencia este campo para a classe Mãe, de modo a que seja herdado para as suas filhas.\\
+Assim podemos ter coleções com diferentes tipos luzes a obedecerem todas ao mesmo metodo \textbf{aplica}. Este comportamento polimorfico, apresenta um grande ganho na simplificação do codigo.
+ 
 \subsubsection{Pontual}
+Os objetos deste tipo possuem um comportamento semelhante ao de uma estrela. No sentido em que a partir deste ponto são propagados feixes de luz em todas as direções.
 
 \subsubsection{Direcional}
 
