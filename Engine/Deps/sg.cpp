@@ -27,12 +27,6 @@ void SceneGraph::setRot( RotacaoV novorot ) {
 
 }
 
-void SceneGraph::setModelo( vector<float> pontos ) {
-	
-	this->modelos = pontos;
-
-}
-
 void SceneGraph::setCurva( TranslacaoC novacurva ) {
 	
 	this->curva = novacurva;
@@ -45,6 +39,23 @@ void SceneGraph::setEixo( RotacaoT novoeixo ) {
 
 }
 
+void SceneGraph::setLuzes( vector<shared_ptr<Luz>> l ) {
+
+	this->luzes = l;
+
+}
+
+void SceneGraph::setTexturas( vector<ModTex> vec ) {
+
+	this->modTex = vec;
+
+}
+
+void SceneGraph::setMateriais( vector<ModMat> vec ) {
+
+	this->modMat = vec;
+
+}
 // Funcoes Adicionais
                 
 void SceneGraph::addFilho( SceneGraph c ) { 
@@ -53,17 +64,14 @@ void SceneGraph::addFilho( SceneGraph c ) {
 
 }
 
-void SceneGraph::setLuzes( vector<shared_ptr<Luz>> l ) {
-
-	this->luzes = l;
-
-}
                
 void SceneGraph::prep() {
 
-	glGenBuffers(1, &(this->vbo));
-	glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * this->modelos.size(), this->modelos.data(), GL_STATIC_DRAW);
+	for( auto &l : this->modMat )
+		l.prep();
+
+	for( auto &l : this->modTex )
+		l.prep();
 
 	for( SceneGraph &tmp : this->filhos ) {
 		tmp.prep();
@@ -82,10 +90,12 @@ void SceneGraph::draw( bool updt ) {
 	this->curva.aplica( updt );
 	this->eixo.aplica( updt );
 
-	glBindBuffer(GL_ARRAY_BUFFER, this->vbo);
-	glVertexPointer(3,GL_FLOAT, 0, 0);
+	for( auto &l : this->modMat )
+		l.aplica();
 
-	glDrawArrays(GL_TRIANGLES, 0, this->modelos.size() / 3);
+	for( auto &l : this->modTex )
+		l.aplica();
+
 
 	for ( shared_ptr<Luz> l : this->luzes ) {
 		l->aplica();

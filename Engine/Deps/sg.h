@@ -53,13 +53,13 @@ class SceneGraph {
                 void setScale( Escala ); 
                 void setTrans( TranslacaoV );
                 void setRot( RotacaoV ); 
-                void setModelo( vector<float> );
 		void setCurva( TranslacaoC );
 		void setEixo( RotacaoT );
-
+		void setLuzes( vector<shared_ptr<Luz>> );
+		void setTexturas( vector<ModTex> );
+		void setMateriais( vector<ModMat> );
 		// Funcoes adicionais
                 void addFilho( SceneGraph ); 
-		void setLuzes( vector<shared_ptr<Luz>> );
 
 		// Funcao que trata de inicializar os VBOS
 		void prep();

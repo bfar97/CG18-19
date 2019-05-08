@@ -1,4 +1,4 @@
-#include "modelo.h"
+#include "modtex.h"
 
 using namespace std;
 
