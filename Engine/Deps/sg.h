@@ -56,7 +56,7 @@ class SceneGraph {
 
 		// Funcoes adicionais
                 void addFilho( SceneGraph ); 
-		void addLuz( shared_ptr<Luz> );
+		void setLuzes( vector<shared_ptr<Luz>> );
 
 		// Funcao que trata de inicializar os VBOS
 		void prep();

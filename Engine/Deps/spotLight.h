@@ -20,7 +20,7 @@ class SLight: public Luz {
 		void setPos( array<float, 3> );
 		void setDir( array<float, 3> );
 		void setCutoff( float );
-		void setLight( GLenum);
+		void setLight( GLenum );
 		void aplica();
 
 };

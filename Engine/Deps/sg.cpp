@@ -53,9 +53,9 @@ void SceneGraph::addFilho( SceneGraph c ) {
 
 }
 
-void SceneGraph::addLuz( shared_ptr<Luz> l ) {
+void SceneGraph::setLuzes( vector<shared_ptr<Luz>> l ) {
 
-	this->luzes.push_back( l );
+	this->luzes = l;
 
 }
                
