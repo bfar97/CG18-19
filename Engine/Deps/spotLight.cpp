@@ -6,6 +6,14 @@ SLight::SLight() {
 	this->cutoff = 0.0f;
 }
 
+SLight::SLight(array<float, 3> pos, array<float, 3> dir, float cut, GLenum luz) {
+	this->setPos(pos);
+	this->setDir(dir);
+	this->setCutoff(cut);
+	this->setLuz(luz);
+
+}
+
 void SLight::setPos( array<float, 3> pos ) {
 	this->pos[0] = pos[0];
 	this->pos[1] = pos[1];
@@ -21,7 +29,7 @@ void SLight::setCutoff( float cutoff ) {
 	this->cutoff = cutoff;
 }
 
-void SLight::setLight( GLenum luz) {
+void SLight::setLuz( GLenum luz) {
 	this->luz = luz;
 }
 

@@ -4,6 +4,11 @@ PLight::PLight() {
 	this->pLight.fill(0.0f);
 }
 
+PLight::PLight(array<float, 3> axs, GLenum luz) {
+	this->setPointLight( axs );
+	this->setLuz(luz);
+}
+
 void PLight::setPointLight( array<float, 3> axs ) {
 	this->pLight[0] = axs[0];
 	this->pLight[1] = axs[1];

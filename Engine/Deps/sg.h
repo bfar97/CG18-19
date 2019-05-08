@@ -15,6 +15,8 @@
 #include "translacaoV.h"
 #include "cronometro.h"
 #include "luz.h"
+#include "modmat.h"
+#include "modtex.h"
 
 using namespace std;
 
@@ -30,8 +32,9 @@ class SceneGraph {
 	TranslacaoC curva;
 	RotacaoT eixo;
 
-	// modelos guardados na scenegraph
-        vector<float> modelos;
+	// modelos guardados na scenegraph para props de materiais e texturas
+        vector<ModMat> modMat;
+	vector<ModTex> modTex;
 
 	//luzes na cena
 	vector<shared_ptr<Luz>> luzes;

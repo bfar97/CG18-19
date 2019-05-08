@@ -17,10 +17,11 @@ class SLight: public Luz {
 
 	public:
 		SLight();
+		SLight( array<float, 3>, array<float, 3>, float, GLenum );
 		void setPos( array<float, 3> );
 		void setDir( array<float, 3> );
 		void setCutoff( float );
-		void setLight( GLenum );
+		void setLuz( GLenum );
 		void aplica();
 
 };

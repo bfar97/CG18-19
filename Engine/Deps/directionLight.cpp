@@ -4,11 +4,16 @@ DLight::DLight() {
 	this->dLight.fill(0.0f);
 }
 
+DLight::DLight( array<float, 3> axs, GLenum luz ) {
+	this->setDirectionLight( axs );
+	this->setLuz(luz);
+}
+
 void DLight::setDirectionLight( array<float, 3> axs ) {
 	this->dLight = axs;
 }
 
-void DLight::setLight( GLenum luz ) {
+void DLight::setLuz( GLenum luz ) {
 	this->luz = luz;
 }
 void DLight::aplica() {

@@ -1,11 +1,33 @@
 #include "tinyxml2.h"
 #include <stdio.h>
 #include <string.h>
-#include "./timedsg.h"
+#include "timedsg.h"
 #include <fstream>
 #include <iostream>
+#include <memory>
+#include "pointLight.h"
+#include "spotLight.h"
+#include "directionLight.h"
 
 
+int nLights = -1;
+
+GLenum pickLight() {
+  nLights += 1;
+  GLenum res;
+  switch (nLights) {
+    case 0: res = GL_LIGHT0; break;
+    case 1: res = GL_LIGHT1; break;
+    case 2: res = GL_LIGHT2; break;
+    case 3: res = GL_LIGHT3; break;
+    case 4: res = GL_LIGHT4; break;
+    case 5: res = GL_LIGHT5; break;
+    case 6: res = GL_LIGHT6; break;
+    case 7: res = GL_LIGHT7; break;
+    default: perror("Numero possivel de luzes excedido."); break;
+  }
+  return res;
+}
 
 std::vector<float> guardaPontos(std::string ficheiro) {
 
@@ -62,7 +84,7 @@ TranslacaoV doTranslate(tinyxml2::XMLElement* translate) {
 }
 
 RotacaoV doRotate(tinyxml2::XMLElement* rotate) {
-    
+
     RotacaoV rotation;
 
     array<float,4> rot;
@@ -80,7 +102,7 @@ RotacaoV doRotate(tinyxml2::XMLElement* rotate) {
     x == nullptr ? rot[1] = 0.0f : rot[1] = atof(x);
     y == nullptr ? rot[2] = 0.0f : rot[2] = atof(y);
     z == nullptr ? rot[3] = 0.0f : rot[3] = atof(z);
-    
+
     rotation.setRot(rot);
 
     return rotation;
@@ -152,6 +174,80 @@ RotacaoT doTimeRotate(tinyxml2::XMLElement* rotate) {
     rotation.setGraus(tempo);
 
     return rotation;
+}
+
+std::vector<std::shared_ptr<Luz>> doLights(tinyxml2::XMLElement* lights) {
+  std::array<float, 3> pontos;
+  std::array<float, 3> direction;
+  float cutoff;
+  const char * x;
+  const char * y;
+  const char * z;
+  std::vector<std::shared_ptr<Luz>> res;
+  //Sacar o First Element do bloco de luzes
+  tinyxml2::XMLElement* light = lights->FirstChildElement();
+  // percorrer todos os elementos do bloco LIGHTS
+  for(light; light != NULL; light = light->NextSiblingElement()) {
+    // Verificar se o tipo de luz é POINT LIGHT
+    if(strcmp((light->Attribute("type")), "POINT")) {
+      //DO POINT LIGHT
+      x = light->Attribute("posX");
+      y = light->Attribute("posY");
+      z = light->Attribute("posZ");
+
+      x == nullptr ? pontos[0] = 0.0f : pontos[0] = atof(x);
+      y == nullptr ? pontos[1] = 0.0f : pontos[1] = atof(y);
+      z == nullptr ? pontos[2] = 0.0f : pontos[2] = atof(z);
+
+      std::shared_ptr<Luz> pL(new PLight(pontos, pickLight()));
+
+      res.push_back(pL);
+    // Verificar se o tipo de luz é DIRECTIONAL LIGHT
+  } else if(strcmp((light->Attribute("type")), "SPOT")) {
+      //DO DIRECTIONAL LIGHT
+      
+      x = light->Attribute("posX");
+      y = light->Attribute("posY");
+      z = light->Attribute("posZ");
+
+      x == nullptr ? pontos[0] = 0.0f : pontos[0] = atof(x);
+      y == nullptr ? pontos[1] = 0.0f : pontos[1] = atof(y);
+      z == nullptr ? pontos[2] = 0.0f : pontos[2] = atof(z);
+
+
+      x = light->Attribute("dirX");
+      y = light->Attribute("dirY");
+      z = light->Attribute("dirZ");
+
+      x == nullptr ? direction[0] = 0.0f : direction[0] = atof(x);
+      y == nullptr ? direction[1] = 0.0f : direction[1] = atof(y);
+      z == nullptr ? direction[2] = 0.0f : direction[2] = atof(z);
+
+      x = light->Attribute("cutoff");
+
+      x == nullptr ? cutoff = 0.0f : cutoff = atof(x);
+
+      std::shared_ptr<Luz> sL(new SLight(pontos, direction, cutoff, pickLight()));
+
+      res.push_back(sL);
+
+    // Verificar se o tipo de luz é SPOT LIGHT
+  } else if(strcmp((light->Attribute("type")), "DIRECTIONAL")) {
+      //DO SPOT LIGHT
+      
+      x = light->Attribute("dirX");
+      y = light->Attribute("dirY");
+      z = light->Attribute("dirZ");
+
+      x == nullptr ? direction[0] = 0.0f : direction[0] = atof(x);
+      y == nullptr ? direction[1] = 0.0f : direction[1] = atof(y);
+      z == nullptr ? direction[2] = 0.0f : direction[2] = atof(z);
+      
+      std::shared_ptr<Luz> dL(new DLight(pontos, pickLight()));
+      res.push_back(dL);
+    }
+  }
+  return res;
 }
 
 SceneGraph doGroup(tinyxml2::XMLElement* group) {
