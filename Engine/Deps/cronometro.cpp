@@ -8,7 +8,7 @@ bool Cronometro::updateTime() {
 
 	int aux = glutGet(GLUT_ELAPSED_TIME);
 	
-	if(aux - this->basetime >= 25) {
+	if(aux - this->basetime >= 300) {
 		this->basetime = aux;
 		return true;
 	}

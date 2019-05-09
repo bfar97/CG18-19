@@ -2,7 +2,14 @@
 
 using namespace std;
 
-ModTex::ModTex() {}
+ModTex::ModTex() {
+
+    this->ambiente.fill(0.0f);
+    this->specular.fill(0.0f);
+    this->emissive.fill(0.0f);
+    this->difusa.fill(0.0f);
+    this->texID = 0;
+}
 
 void ModTex::setPontos( vector<float> vec ) {
 	
@@ -25,7 +32,31 @@ void ModTex::setTexID( GLuint id ) {
 	
 	this->texID = id;
 
-} 
+}
+
+void ModTex::setAmbiente( array<float, 4> amb ) {
+
+    this->ambiente = amb;
+
+}
+
+void ModTex::setSpecular( array<float, 4> sp ) {
+
+    this->specular = sp;
+
+}
+
+void ModTex::setEmissive( array<float, 4> emi ) {
+
+    this->emissive = emi;
+
+}
+
+void ModTex::setDifusa( array<float, 4> dif ) {
+
+    this->difusa = dif;
+
+}
 
 void ModTex::prep() {
 
@@ -57,7 +88,12 @@ void ModTex::aplica() {
 
 	glBindTexture(GL_TEXTURE_2D, this->texID);
 
-	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, white);
+    glMaterialfv(GL_FRONT, GL_AMBIENT, this->ambiente.data());
+    glMaterialfv(GL_FRONT, GL_SPECULAR, this->specular.data());
+    glMaterialfv(GL_FRONT, GL_EMISSION, this->emissive.data());
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, this->difusa.data());
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, white);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, this->vbos[0]);
 	glVertexPointer(3, GL_FLOAT, 0, 0);
@@ -72,6 +108,11 @@ void ModTex::aplica() {
 
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, black);
 
-	glBindTexture(GL_TEXTURE_2D, 0);
+    glMaterialfv(GL_FRONT, GL_AMBIENT, black);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, black);
+    glMaterialfv(GL_FRONT, GL_EMISSION, black);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, black);
+
+    glBindTexture(GL_TEXTURE_2D, 0);
 
 }

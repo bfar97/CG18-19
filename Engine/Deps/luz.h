@@ -5,6 +5,7 @@ class Luz {
 
 	public:
 		virtual void aplica() = 0;
+		virtual void prep() = 0;
 		virtual ~Luz() = default;
 };
 

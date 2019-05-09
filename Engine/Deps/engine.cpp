@@ -1,16 +1,52 @@
 #include "tinyxml2.h"
 #include <stdio.h>
 #include <string.h>
-#include "timedsg.h"
+#include "./timedsg.h"
 #include <fstream>
 #include <iostream>
 #include <memory>
 #include "pointLight.h"
 #include "spotLight.h"
 #include "directionLight.h"
-
+#include "modtex.h"
+#include <IL/il.h>
 
 int nLights = -1;
+
+int loadTexture(std::string s) {
+
+	unsigned int t,tw,th;
+	unsigned char *texData;
+	unsigned int texID;
+
+	ilInit();
+	ilEnable(IL_ORIGIN_SET);
+	ilOriginFunc(IL_ORIGIN_LOWER_LEFT);
+	ilGenImages(1,&t);
+	ilBindImage(t);
+	ilLoadImage((ILstring)s.c_str());
+	tw = ilGetInteger(IL_IMAGE_WIDTH);
+	th = ilGetInteger(IL_IMAGE_HEIGHT);
+	ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
+	texData = ilGetData();
+
+	glGenTextures(1,&texID);
+	
+	glBindTexture(GL_TEXTURE_2D,texID);
+	glTexParameteri(GL_TEXTURE_2D,	GL_TEXTURE_WRAP_S,		GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D,	GL_TEXTURE_WRAP_T,		GL_REPEAT);
+
+	glTexParameteri(GL_TEXTURE_2D,	GL_TEXTURE_MAG_FILTER,   	GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D,	GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tw, th, 0, GL_RGBA, GL_UNSIGNED_BYTE, texData);
+	glGenerateMipmap(GL_TEXTURE_2D);
+
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	return texID;
+
+}
 
 GLenum pickLight() {
   nLights += 1;
@@ -29,36 +65,114 @@ GLenum pickLight() {
   return res;
 }
 
-std::vector<float> guardaPontos(std::string ficheiro) {
-
-    std::vector<float> pontos;
+void guardaPontos(std::string ficheiro, std::vector<float> &vertices, std::vector<float> &normais, std::vector<float> &coordstext) {
 
     std::ifstream file;
-    //change this to your folder's path.
     std::string s = "./";
     s.append(ficheiro.c_str());
     file.open(s.c_str());
-    float a,b,c;
-    while(file >> a >> b >> c) {
-        pontos.push_back(a);
-        pontos.push_back(b);
-        pontos.push_back(c);
+
+    //guardar o nr de vertices e de normais
+    int size;
+    file >> size;
+
+    float p;
+    int i;
+    for(i = 0; i < size; i++) {
+        file >> p;
+        vertices.push_back(p);
     }
-    return pontos;
+    for(i = 0; i < size; i++) {
+        file >> p;
+        normais.push_back(p);
+    }
+    while(file >> p) {
+        coordstext.push_back(p);
+    }
 }
 
-std::vector<float> doModels(tinyxml2::XMLElement* models) {
-    std::vector<float> pPontos;
-    std::vector<float> savedPoints;
+std::vector<ModTex> doModels(tinyxml2::XMLElement* models) {
 
+    std::vector<ModTex> res;
+    const char * type;
+    std::vector<float> vertices;
+    std::vector<float> normais;
+    std::vector<float> coordstext;
     tinyxml2::XMLElement* novo = models->FirstChildElement();
-    for(novo; novo != NULL; novo = novo->NextSiblingElement()) {
+    for(; novo != NULL; novo = novo->NextSiblingElement()) {
+        ModTex tmp;
+        std::array<float, 4> ambiente;
+        std::array<float, 4> especular;
+        std::array<float, 4> emissiva;
+        std::array<float, 4> difusa;
+        type = novo->Attribute("texture");
+        if(type != nullptr) {
+            std::string texture;
+            texture = novo->Attribute("texture");
+            tmp.setTexID(loadTexture(texture));
+        }
+
+        const char * diffR;
+        const char * diffG;
+        const char * diffB;
+
         const char * file;
         file = novo->Attribute("file");
-        savedPoints = guardaPontos(file);
-        pPontos.insert(pPontos.begin(), savedPoints.begin(), savedPoints.end());
+
+        diffR = novo->Attribute("difR");
+        diffG = novo->Attribute("difG");
+        diffB = novo->Attribute("difB");
+
+        diffR == nullptr ? difusa[0] = 0.0f : difusa[0] = atof(diffR);
+        diffG == nullptr ? difusa[1] = 0.0f : difusa[1] = atof(diffG);
+        diffB == nullptr ? difusa[2] = 0.0f : difusa[2] = atof(diffB);
+        difusa[3] = 1.0f;
+
+        diffR = novo->Attribute("ambR");
+        diffG = novo->Attribute("ambG");
+        diffB = novo->Attribute("ambB");
+
+        diffR == nullptr ? ambiente[0] = 0.0f : ambiente[0] = atof(diffR);
+        diffG == nullptr ? ambiente[1] = 0.0f : ambiente[1] = atof(diffG);
+        diffB == nullptr ? ambiente[2] = 0.0f : ambiente[2] = atof(diffB);
+        ambiente[3] = 1.0f;
+
+        diffR = novo->Attribute("espR");
+        diffG = novo->Attribute("espG");
+        diffB = novo->Attribute("espB");
+
+        diffR == nullptr ? especular[0] = 0.0f : especular[0] = atof(diffR);
+        diffG == nullptr ? especular[1] = 0.0f : especular[1] = atof(diffG);
+        diffB == nullptr ? especular[2] = 0.0f : especular[2] = atof(diffB);
+        especular[3] = 1.0f;
+
+        diffR = novo->Attribute("emiR");
+        diffG = novo->Attribute("emiG");
+        diffB = novo->Attribute("emiB");
+
+        diffR == nullptr ? emissiva[0] = 0.0f : emissiva[0] = atof(diffR);
+        diffG == nullptr ? emissiva[1] = 0.0f : emissiva[1] = atof(diffG);
+        diffB == nullptr ? emissiva[2] = 0.0f : emissiva[2] = atof(diffB);
+        emissiva[3] = 1.0f;
+
+        guardaPontos(file, vertices, normais, coordstext);
+
+        tmp.setPontos(vertices);
+        tmp.setNormais(normais);
+        tmp.setTexturas(coordstext);
+        tmp.setAmbiente(ambiente);
+        tmp.setSpecular(especular);
+        tmp.setEmissive(emissiva);
+        tmp.setDifusa(difusa);
+
+        res.push_back(tmp);
+        vertices.clear();
+        normais.clear();
+        coordstext.clear();
+
     }
-    return pPontos;
+
+    return res;
 }
 
 TranslacaoV doTranslate(tinyxml2::XMLElement* translate) {
@@ -74,9 +188,9 @@ TranslacaoV doTranslate(tinyxml2::XMLElement* translate) {
     y = translate->Attribute("y");
     z = translate->Attribute("z");
 
-    x == nullptr ? trans[0] = 0 : trans[0] = atoi(x);
-    y == nullptr ? trans[1] = 0 : trans[1] = atoi(y);
-    z == nullptr ? trans[2] = 0 : trans[2] = atoi(z);
+    x == nullptr ? trans[0] = 0 : trans[0] = atof(x);
+    y == nullptr ? trans[1] = 0 : trans[1] = atof(y);
+    z == nullptr ? trans[2] = 0 : trans[2] = atof(z);
 
     transl.setTrans(trans);
 
@@ -189,7 +303,7 @@ std::vector<std::shared_ptr<Luz>> doLights(tinyxml2::XMLElement* lights) {
   // percorrer todos os elementos do bloco LIGHTS
   for(light; light != NULL; light = light->NextSiblingElement()) {
     // Verificar se o tipo de luz é POINT LIGHT
-    if(strcmp((light->Attribute("type")), "POINT")) {
+    if(!strcmp((light->Attribute("type")), "POINT")) {
       //DO POINT LIGHT
       x = light->Attribute("posX");
       y = light->Attribute("posY");
@@ -200,12 +314,10 @@ std::vector<std::shared_ptr<Luz>> doLights(tinyxml2::XMLElement* lights) {
       z == nullptr ? pontos[2] = 0.0f : pontos[2] = atof(z);
 
       std::shared_ptr<Luz> pL(new PLight(pontos, pickLight()));
-
       res.push_back(pL);
     // Verificar se o tipo de luz é DIRECTIONAL LIGHT
-  } else if(strcmp((light->Attribute("type")), "SPOT")) {
+  } else if(!strcmp((light->Attribute("type")), "SPOT")) {
       //DO DIRECTIONAL LIGHT
-      
       x = light->Attribute("posX");
       y = light->Attribute("posY");
       z = light->Attribute("posZ");
@@ -214,7 +326,6 @@ std::vector<std::shared_ptr<Luz>> doLights(tinyxml2::XMLElement* lights) {
       y == nullptr ? pontos[1] = 0.0f : pontos[1] = atof(y);
       z == nullptr ? pontos[2] = 0.0f : pontos[2] = atof(z);
 
-
       x = light->Attribute("dirX");
       y = light->Attribute("dirY");
       z = light->Attribute("dirZ");
@@ -222,6 +333,7 @@ std::vector<std::shared_ptr<Luz>> doLights(tinyxml2::XMLElement* lights) {
       x == nullptr ? direction[0] = 0.0f : direction[0] = atof(x);
       y == nullptr ? direction[1] = 0.0f : direction[1] = atof(y);
       z == nullptr ? direction[2] = 0.0f : direction[2] = atof(z);
+
 
       x = light->Attribute("cutoff");
 
@@ -232,9 +344,8 @@ std::vector<std::shared_ptr<Luz>> doLights(tinyxml2::XMLElement* lights) {
       res.push_back(sL);
 
     // Verificar se o tipo de luz é SPOT LIGHT
-  } else if(strcmp((light->Attribute("type")), "DIRECTIONAL")) {
+  } else if(!strcmp((light->Attribute("type")), "DIRECTIONAL")) {
       //DO SPOT LIGHT
-      
       x = light->Attribute("dirX");
       y = light->Attribute("dirY");
       z = light->Attribute("dirZ");
@@ -242,7 +353,7 @@ std::vector<std::shared_ptr<Luz>> doLights(tinyxml2::XMLElement* lights) {
       x == nullptr ? direction[0] = 0.0f : direction[0] = atof(x);
       y == nullptr ? direction[1] = 0.0f : direction[1] = atof(y);
       z == nullptr ? direction[2] = 0.0f : direction[2] = atof(z);
-      
+
       std::shared_ptr<Luz> dL(new DLight(pontos, pickLight()));
       res.push_back(dL);
     }
@@ -254,11 +365,10 @@ SceneGraph doGroup(tinyxml2::XMLElement* group) {
     SceneGraph s_g;
     tinyxml2::XMLElement* novo = group->FirstChildElement();
     for(novo; novo != NULL; novo = novo->NextSiblingElement()) {
-        //printf("%s\n", novo->Name());
         if(!strcmp(novo->Name(), "group")) {
             s_g.addFilho(doGroup(novo));
         } else if(!strcmp(novo->Name(), "models")) {
-            s_g.setModelo(doModels(novo));
+            s_g.setTexturas(doModels(novo));
         } else if(!strcmp(novo->Name(), "translate")) {
             if(novo->Attribute("time") == nullptr) {
                 s_g.setTrans(doTranslate(novo));
@@ -273,6 +383,8 @@ SceneGraph doGroup(tinyxml2::XMLElement* group) {
             }
         } else if(!strcmp(novo->Name(), "scale")) {
             s_g.setScale(doScale(novo));
+        } else if(!strcmp(novo->Name(), "lights")) {
+            s_g.setLuzes(doLights(novo));
         } else {
             perror("Formato XML Incorreto.\n");
         }

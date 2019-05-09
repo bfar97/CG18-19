@@ -22,6 +22,7 @@ class SLight: public Luz {
 		void setDir( array<float, 3> );
 		void setCutoff( float );
 		void setLuz( GLenum );
+		void prep();
 		void aplica();
 
 };

@@ -4,24 +4,29 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/catmullmath.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/catmullmath.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/cronometro.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/cronometro.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/engine.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/engine.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/escala.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/escala.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/parseBezier.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/parseBezier.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/rotacaoT.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/rotacaoT.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/rotacaoV.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/rotacaoV.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/sg.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/sg.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/timedsg.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/timedsg.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/tinyxml2.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/tinyxml2.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/translacaoC.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/translacaoC.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/Deps/translacaoV.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/translacaoV.cpp.o"
-  "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/main.cpp" "/home/bernardo/Desktop/Universidade/CG/Trabalho/CG18-19-backup3/Engine/cmake-build-debug/CMakeFiles/Engine.dir/main.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/catmullmath.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/catmullmath.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/cronometro.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/cronometro.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/directionLight.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/directionLight.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/engine.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/engine.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/escala.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/escala.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/modtex.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/modtex.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/parseBezier.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/parseBezier.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/pointLight.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/pointLight.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/rotacaoT.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/rotacaoT.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/rotacaoV.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/rotacaoV.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/sg.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/sg.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/spotLight.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/spotLight.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/timedsg.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/timedsg.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/tinyxml2.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/tinyxml2.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/translacaoC.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/translacaoC.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/Deps/translacaoV.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/Deps/translacaoV.cpp.o"
+  "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/main.cpp" "/home/cesar/Desktop/CG/Trabalho/CG18-19/Engine/cmake-build-debug/CMakeFiles/Engine.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../ยง{IL_INCLUDE_DIR}"
   )
 
 # Targets to which this target links.

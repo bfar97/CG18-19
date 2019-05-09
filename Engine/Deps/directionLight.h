@@ -18,6 +18,7 @@ class DLight : public Luz {
 		DLight( array<float, 3>, GLenum );
 		void setDirectionLight( array<float, 3> );
 		void setLuz( GLenum );
+		void prep();
 		void aplica();
 };
 

@@ -20,6 +20,10 @@ void PLight::setLuz( GLenum luz ) {
 	this->luz = luz;
 }
 
+void PLight::prep() {
+    glEnable(this->luz);
+}
+
 void PLight::aplica() {
 	glLightfv(this->luz, GL_POSITION, this->pLight.data());
 }

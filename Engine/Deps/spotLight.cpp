@@ -33,6 +33,11 @@ void SLight::setLuz( GLenum luz) {
 	this->luz = luz;
 }
 
+void SLight::prep() {
+    glEnable(this->luz);
+}
+
+
 void SLight::aplica() {
 	glLightfv(this->luz, GL_POSITION, this->pos.data());
 	glLightfv(this->luz, GL_SPOT_DIRECTION, this->dir.data());

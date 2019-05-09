@@ -12,6 +12,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/Engine.dir/Deps/timedsg.cpp.o"
   "CMakeFiles/Engine.dir/Deps/translacaoC.cpp.o"
   "CMakeFiles/Engine.dir/Deps/translacaoV.cpp.o"
+  "CMakeFiles/Engine.dir/Deps/directionLight.cpp.o"
+  "CMakeFiles/Engine.dir/Deps/pointLight.cpp.o"
+  "CMakeFiles/Engine.dir/Deps/spotLight.cpp.o"
+  "CMakeFiles/Engine.dir/Deps/modtex.cpp.o"
   "Engine.pdb"
   "Engine"
 )

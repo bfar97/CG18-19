@@ -7,7 +7,9 @@ using namespace std;
 
 // Setters 
 
-SceneGraph::SceneGraph() {}
+SceneGraph::SceneGraph() {
+
+}
 
 void SceneGraph::setScale( Escala novaesc ) { 
 
@@ -51,11 +53,6 @@ void SceneGraph::setTexturas( vector<ModTex> vec ) {
 
 }
 
-void SceneGraph::setMateriais( vector<ModMat> vec ) {
-
-	this->modMat = vec;
-
-}
 // Funcoes Adicionais
                 
 void SceneGraph::addFilho( SceneGraph c ) { 
@@ -67,11 +64,11 @@ void SceneGraph::addFilho( SceneGraph c ) {
                
 void SceneGraph::prep() {
 
-	for( auto &l : this->modMat )
-		l.prep();
-
 	for( auto &l : this->modTex )
 		l.prep();
+
+	for ( auto &l : this->luzes )
+	    l->prep();
 
 	for( SceneGraph &tmp : this->filhos ) {
 		tmp.prep();
@@ -89,9 +86,6 @@ void SceneGraph::draw( bool updt ) {
 
 	this->curva.aplica( updt );
 	this->eixo.aplica( updt );
-
-	for( auto &l : this->modMat )
-		l.aplica();
 
 	for( auto &l : this->modTex )
 		l.aplica();

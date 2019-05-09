@@ -18,6 +18,7 @@ class PLight : public Luz {
 		PLight( array<float, 3>, GLenum );
 		void setPointLight( array<float, 3> );
 		void setLuz( GLenum );
+		void prep();
 		void aplica();
 };
 

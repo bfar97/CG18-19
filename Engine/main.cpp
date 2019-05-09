@@ -27,10 +27,7 @@ SceneGraph s_gg;
 
 double alfa = M_PI / 4;
 double beta = M_PI / 4;
-float raio = 350.0f;
-
-extern int nrModels;
-
+float raio = 500.0f;
 
 void changeSize(int w, int h) {
 
@@ -65,14 +62,12 @@ void renderScene(void) {
 
 	// set the camera
     glLoadIdentity();
-    gluLookAt(raio * cos(beta) * cos(alfa), raio * cos(beta) * sin(alfa), raio * sin(beta),
-              0.0,75.0,0.0,
-              0.0f,0.0f,1.0f);
+    gluLookAt(raio * cos(beta) * sin(alfa), raio * sin(beta), raio * cos(beta) * cos(alfa),
+              0.0f, 0.0f, 0.0f,
+              0.0f,1.0f,0.0f);
 
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-    glColor3f(1.0f,1.0f,1.0f);
-
+    //glColor3f(1.0f,1.0f,1.0f);
     ts_g.draw();
 
 	// End of frame
@@ -106,23 +101,34 @@ void processSpecialKeys(int key, int xx, int yy) {
 
 }
 
-void init() {
+void init(tinyxml2::XMLNode *scene) {
+#ifndef __APPLE__
+// init GLEW
     glewInit();
+#endif
 
     // OpenGL Settings
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
 
     glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_NORMAL_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
+    glClearColor(0, 0, 0, 0);
+
+    glEnable(GL_LIGHTING);
+
+    glEnable(GL_TEXTURE_2D);
+    s_gg = doGroup(scene->FirstChildElement("group"));
+    ts_g.setSG(s_gg);
     ts_g.prep();
+
 }
 
 
 
 int main(int argc, char **argv) {
-
-
 
     tinyxml2::XMLDocument doc;
     //new file
@@ -130,9 +136,6 @@ int main(int argc, char **argv) {
     tinyxml2::XMLNode *scene = doc.FirstChild();
     if (scene == nullptr) perror("Erro de Leitura.\n");
 
-    s_gg = doGroup(scene->FirstChildElement("group"));
-
-    ts_g.setSG(s_gg);
 
 // init GLUT and the window
 	glutInit(&argc, argv);
@@ -150,7 +153,7 @@ int main(int argc, char **argv) {
 	glutSpecialFunc(processSpecialKeys);
 
 // Init function Call
-    init();
+    init(scene);
 
 // enter GLUT's main cycle
 	glutMainLoop();
